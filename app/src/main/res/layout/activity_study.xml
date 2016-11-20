@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_study"
     android:layout_width="match_parent"
@@ -8,13 +9,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg_learn"
     tools:context="com.example.amylilian.text_card.StudyActivity">
 
-    <TextView
-        android:text="Study Page"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView2" />
+        app:srcCompat="@drawable/btm_group01_a"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:id="@+id/imageButton1_1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btm_group02_a"
+        android:layout_marginEnd="32dp"
+        android:id="@+id/imageButton1_2"
+        android:layout_alignTop="@+id/imageButton1_1"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class StudyActivity extends AppCompatActivity {
         imageButton1_1 = (ImageButton) findViewById(R.id.imageButton1_1);
         imageButton1_2 = (ImageButton) findViewById(R.id.imageButton1_2);
 
+        context = this;
         imageButton1_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

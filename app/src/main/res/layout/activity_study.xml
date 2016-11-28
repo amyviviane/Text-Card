@@ -32,5 +32,6 @@
         android:id="@+id/imageButton1_2"
         android:layout_alignTop="@+id/imageButton1_1"
         android:layout_alignParentEnd="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>

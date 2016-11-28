@@ -25,7 +25,10 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".StudyContentActivity"></activity>
+        <activity android:name=".StudyContentActivity" />
+        <activity android:name=".StudyContentMiddleActivity" />
+        <activity android:name=".StudyContentEndActivity" />
+        <activity android:name=".StudyResultActivity"></activity>
     </application>
 
 </manifest>

@@ -78,4 +78,19 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
+    <!--temply test word in study activity-->
+    <string-array name="temp_text">
+        <item>apple</item>
+        <item>banana</item>
+        <item>cat</item>
+        <item>dog</item>
+        <item>egg</item>
+        <item>fate</item>
+        <item>good</item>
+        <item>hight</item>
+        <item>idea</item>
+        <item>join</item>
+    </string-array>
+
 </resources>

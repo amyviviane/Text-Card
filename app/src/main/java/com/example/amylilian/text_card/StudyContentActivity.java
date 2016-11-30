@@ -32,10 +32,11 @@ public class StudyContentActivity extends AppCompatActivity {
         String[] text_array = getResources().getStringArray(R.array.temp_text);
 
         //get total string[] long
-        final int group_length = text_array.length - 1;
+        final int group_length = text_array.length;
 
         //print first word
         text1.setText(text_array[0]);
+
 
 
         context = this;

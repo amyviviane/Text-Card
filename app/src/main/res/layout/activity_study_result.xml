@@ -28,7 +28,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="26dp"
         android:id="@+id/imageButton"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:background="@android:color/transparent"/>
 
     <ImageButton
         android:layout_width="112dp"
@@ -38,5 +39,6 @@
         android:id="@+id/gotoButton_studyresult"
         android:scaleType="centerCrop"
         android:layout_below="@+id/imageButton"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"/>
 </RelativeLayout>

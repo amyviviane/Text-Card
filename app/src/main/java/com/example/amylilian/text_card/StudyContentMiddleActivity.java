@@ -34,7 +34,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         String[] text_array = getResources().getStringArray(R.array.temp_text);
 
         //get total string[] long
-        final int group_length = text_array.length - 1;
+        final int group_length = text_array.length;
 
         //get bundle
         Bundle extras = getIntent().getExtras();
@@ -70,8 +70,14 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
             public void onClick(View view) {
                 next_botton.setImageResource(R.drawable.btm_right_b);
 
-                if ((count + 1) == group_length){
+                if ((count + 1) == group_length - 1){ //
+                    //put value into Bundle(新增2016.11.30)(應該是不可少的)
+                    final Bundle extras = new Bundle();
+                    extras.putInt("length",group_length);
+                    extras.putInt("count",count + 1);
+
                     intent = new Intent(context, StudyContentEndActivity.class);
+                    intent.putExtras(extras);
                     startActivity(intent);
                 }else {
                     //put value into Bundle

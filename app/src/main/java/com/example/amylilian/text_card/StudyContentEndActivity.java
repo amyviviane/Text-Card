@@ -28,14 +28,21 @@ public class StudyContentEndActivity extends AppCompatActivity {
         previous_botton = (ImageButton) findViewById(R.id.previouspageButton_studyend);
         end_botton = (ImageButton) findViewById(R.id.endButton_studyend);
 
+        //喂！！這個重要的不能忘記加呀www！！！
+        text1 = (TextView) findViewById(R.id.text1View_studyend);
+
         //get temply text string
         String[] text_array = getResources().getStringArray(R.array.temp_text);
 
         //get total string[] long
-        final int group_length = text_array.length - 1;
+        final int group_length = text_array.length ; //修改 (沒有-1）
+
+        //get bundle(新增2016.11.30)
+        Bundle extras = getIntent().getExtras();
+        final int count = extras.getInt("count");
 
         //print first word
-        text1.setText(text_array[group_length - 1]);
+        text1.setText(text_array[count]);
 
         context = this;
         previous_botton.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +53,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 //put value into Bundle
                 final Bundle extras = new Bundle();
                 extras.putInt("length",group_length);
-                extras.putInt("count",group_length - 1);
+                extras.putInt("count",count - 1);
 
                 intent = new Intent(context, StudyContentMiddleActivity.class);
                 intent.putExtras(extras);
@@ -56,7 +63,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
         end_botton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                end_botton.setImageResource(R.drawable.btm_right_b);
+                end_botton.setImageResource(R.drawable.btm_end_b); //修改成btm_end_b
 
                 intent = new Intent(context, StudyResultActivity.class);
                 startActivity(intent);

@@ -26,7 +26,7 @@ public class StudyResultActivity extends AppCompatActivity {
         gotostudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gotostudy.setImageResource(R.drawable.btm_end_b);
+                gotostudy.setImageResource(R.drawable.btm_golearn_b);
 
                 intent = new Intent(context , StudyActivity.class);
                 startActivity(intent);

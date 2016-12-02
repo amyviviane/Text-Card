@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amylilian.text_card">
 
+    <!--限制直立-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
 
-        <activity android:name=".SplashScreen">
-            //android:theme="@android:style/Theme.NoTitleBar"
+        <!--開始畫面設獨立、沒有標題條-->
+        <activity android:name=".SplashScreen"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,17 +25,27 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".StudyActivity" />
-        <activity android:name=".ReviewTestActivity" />
-        <activity android:name=".ReviewActivity" />
+
+        <!--增加轉跳形式-->
+        <activity android:name=".StudyActivity"
+            android:launchMode="singleTask"/>
+
+        <!--移除掉ReviewTestActivity跟ReviewActivity-->
+
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".StudyContentActivity" />
-        <activity android:name=".StudyContentMiddleActivity" />
-        <activity android:name=".StudyContentEndActivity" />
-        <activity android:name=".StudyResultActivity" />
+
+        <activity android:name=".StudyContentActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".StudyContentMiddleActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".StudyContentEndActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".StudyResultActivity"
+            android:launchMode="singleTask"/>
+
         <activity android:name=".DBActivity">
         </activity>
     </application>

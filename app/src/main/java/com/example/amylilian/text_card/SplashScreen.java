@@ -13,12 +13,13 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+/*
         //12.02新增:隱藏Action Bar
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         //actionBar.setIcon(R.drawable.help);
         actionBar.hide();
+*/
 
         new Handler().postDelayed(new Runnable() {
             @Override

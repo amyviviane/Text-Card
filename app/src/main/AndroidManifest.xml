@@ -11,10 +11,8 @@
         android:theme="@style/AppTheme"
         android:screenOrientation="portrait">
 
-        <!--開始畫面設獨立、沒有標題條-->
-        <activity android:name=".SplashScreen"
-            android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.NoTitleBar">
+        <!--開始畫面設獨立-->
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,11 +22,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance"></activity>
 
         <!--增加轉跳形式-->
         <activity android:name=".StudyActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleInstance"/>
 
         <!--移除掉ReviewTestActivity跟ReviewActivity-->
 
@@ -37,14 +36,11 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
 
-        <activity android:name=".StudyContentActivity"
-            android:launchMode="singleTask"/>
+        <activity android:name=".StudyContentActivity" />
         <activity android:name=".StudyContentMiddleActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".StudyContentEndActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".StudyResultActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTop"/>
+        <activity android:name=".StudyContentEndActivity"/>
+        <activity android:name=".StudyResultActivity"/>
 
         <activity android:name=".DBActivity">
         </activity>

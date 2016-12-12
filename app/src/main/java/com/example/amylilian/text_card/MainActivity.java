@@ -16,9 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,18 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+<<<<<<< HEAD
     //返回
+=======
+    //1202新增:限制返回鍵
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+>>>>>>> 6da1c6ac97ad22aced27bc45f8f98dc4e1688ab1
     @Override
     public void onBackPressed() {
 

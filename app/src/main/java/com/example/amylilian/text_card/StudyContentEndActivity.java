@@ -70,4 +70,9 @@ public class StudyContentEndActivity extends AppCompatActivity {
             }
         });
     }
+    //返回
+    @Override
+    public void onBackPressed() {
+
+    }
 }

@@ -92,4 +92,9 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
             }
         });
     }
+    //返回
+    @Override
+    public void onBackPressed() {
+
+    }
 }

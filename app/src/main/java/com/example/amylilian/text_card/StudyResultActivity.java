@@ -33,4 +33,9 @@ public class StudyResultActivity extends AppCompatActivity {
             }
         });
     }
+    //返回
+    @Override
+    public void onBackPressed() {
+
+    }
 }

@@ -407,7 +407,7 @@ INSERT INTO "Sentence" VALUES(152,288.1,290,'哈蜜瓜','cantaloupe','[ㄏㄚ,�
 INSERT INTO "Sentence" VALUES(153,290,291.9,'鳳梨','pineapple','[ㄈㄥˋ,ㄌㄧˊ][feng4,li2]','HA0003');
 INSERT INTO "Sentence" VALUES(154,291.9,294,'芒果','mango','[ㄇㄤˊ,ㄍㄨㄛˇ][mang2,guo3]','HA0004');
 INSERT INTO "Sentence" VALUES(155,294,296,'木瓜','papaya','[ㄇㄨˋ,ㄍㄨㄚ][mu4,gua1]','HA0005');
-INSERT INTO "Sentence" VALUES(156,296,297.8,'蘋果','apple','[ㄆㄧㄣˊ,ㄍㄨㄛˇ][pin2,guo3]','HA0006');
+INSERT INTO "Sentence" VALUES(156,296,297.8,'蘋果','apple','[ㄆㄧㄥˊ,ㄍㄨㄛˇ][pin2,guo3]','HA0006');
 INSERT INTO "Sentence" VALUES(157,297.8,299.6,'藍莓','blueberry','[ㄌㄢˊ,ㄇㄟˊ][lan2,mei2]','HB0001');
 INSERT INTO "Sentence" VALUES(158,299.6,301.4,'甘蔗','sugar cane','[ㄍㄢ,ㄓㄜˋ][gan1,zhe4]','HB0002');
 INSERT INTO "Sentence" VALUES(159,301.4,303.4,'西瓜','watermelon','[ㄒㄧ,ㄍㄨㄚ][xi1,gua1]','HB0003');
@@ -422,7 +422,7 @@ INSERT INTO "Sentence" VALUES(167,315.8,317.7,'楊桃','carambola','[ㄧㄤˊ,�
 INSERT INTO "Sentence" VALUES(168,317.7,319.4,'椰子','coconut','[ㄧㄝˊ,ㄗ˙][ye2,zi]','HB0012');
 INSERT INTO "Sentence" VALUES(169,319.4,321.4,'食品','food','[ㄕˊ,ㄆㄧㄣˇ][shi2,pin3]','IA0000');
 INSERT INTO "Sentence" VALUES(170,321.4,323.4,'爆米花','popcorn','[ㄅㄠˋ,ㄇㄧˇ,ㄏㄨㄚ][bao4,mi3,hua1]','IA0001');
-INSERT INTO "Sentence" VALUES(171,323.4,325.3,'餅乾','coolie','[ㄅㄧㄥˇ,ㄍㄢ][bing3,gan1]','IA0002');
+INSERT INTO "Sentence" VALUES(171,323.4,325.3,'餅乾','cookie','[ㄅㄧㄥˇ,ㄍㄢ][bing3,gan1]','IA0002');
 INSERT INTO "Sentence" VALUES(172,325.3,326.7,'蛋','egg','[ㄉㄢˋ][dan4]','IA0003');
 INSERT INTO "Sentence" VALUES(173,326.7,328.8,'牛奶','milk','[ㄋㄧㄡˊ,ㄋㄞˇ][niu2,nai3]','IA0004');
 INSERT INTO "Sentence" VALUES(174,328.8,330.6,'蛋糕','cake','[ㄉㄢˋ,ㄍㄠ][dan4,gao1]','IA0005');

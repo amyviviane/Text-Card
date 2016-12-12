@@ -93,18 +93,9 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
             }
         });
     }
-<<<<<<< HEAD
     //返回
     @Override
     public void onBackPressed() {
-
-=======
-    //1202新增:限制返回鍵
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-        }
-        return super.dispatchKeyEvent(event);
->>>>>>> 6da1c6ac97ad22aced27bc45f8f98dc4e1688ab1
     }
+
 }

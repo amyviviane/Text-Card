@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import static com.example.amylilian.text_card.DBColumns.ID;
 import static com.example.amylilian.text_card.DBColumns.TRL;
@@ -29,16 +30,16 @@ public class StudyContentActivity extends AppCompatActivity {
     //add intent
     private Context context;
     private Intent intent;
+    private DBHelper dbHelper;
 
-    DBHelper helper;
     private static final String TAG = "StudyContentActivity";
 
-    /*因為會自動抓檔案所以不用特別實作
-    private SQLiteDatabase openDB(String dbfile){
+    private SQLiteDatabase copydb(String dbfile){
         try{
             //判斷資料庫檔案是否存在
             if(!(new File(dbfile).exists())){
-                InputStream is = context.getAssets().open(DB_NAME);
+                //String sfile = DBHelper.DB_LOCATION + DBHelper.DB_NAME;
+                InputStream is = context.getAssets().open(DBHelper.DB_NAME);
                 FileOutputStream fos = new FileOutputStream(dbfile);
                 byte[] buffer = new byte[50000];
                 int count = 0;
@@ -48,21 +49,21 @@ public class StudyContentActivity extends AppCompatActivity {
                 fos.close();
                 is.close();
             }
-            SQLiteDatabase db = SQLiteDatabase.openDatabase(dbfile, );
+            SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbfile,null);
             return db;
         } catch (Exception e){
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_content);
 
-        //呼叫建構子
-        helper = new DBHelper(context,"card.sql",null, 1);
+        //呼叫建構子(寫進DBHelper,context換成this)
+        DBHelper helper = new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         //Cursor
@@ -80,7 +81,10 @@ public class StudyContentActivity extends AppCompatActivity {
         final int group_length = text_array.length;
 
         try{
-            cursor = db.query(Table_Name,new String[]{ID,TRL},ID + "< 10" ,null,null,null,ID);
+            //cursor = db.query(Table_Name, new String[]{ID,TRL}, ID + "< 10" , null, null, null, ID);
+            //cursor = db.query(Table_Name, null, ID + " < 10" , new String[]{ID,TRL}, null, null, ID);
+            cursor = db.query(true, Table_Name,new String[]{ID,TRL}, ID + " < 10" ,  null, null, null,null,null);
+
             if (cursor != null){
                 String id = cursor.getString(cursor.getColumnIndex(ID));
                 String trl = cursor.getString(cursor.getColumnIndex(TRL));

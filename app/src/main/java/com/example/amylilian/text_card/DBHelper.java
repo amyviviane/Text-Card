@@ -17,34 +17,38 @@ public class DBHelper extends SQLiteOpenHelper {
     //"/data/data/com.example.amylilian.text_card/databases/"
     /* private static String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/"
         + getApplicationContext().getPackageName();*/
-    private static String DB_PATH ="";
 
-
+    // 資料庫路徑***
+    public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
     // 資料庫名稱
-    public static final String DB_NAME = "file:///android_asset/card.sql";
+    public static final String DB_NAME = "card.sql";
     // 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
     public static final int VERSION = 1;
     // 資料庫物件，固定的欄位變數
     private static SQLiteDatabase database;
-    //??:為何一定要給初始值呢
-    private final Context context = null;
+    //context只有private***
+    private Context context;
 
     private static final String TAG = "DBHelper";
 
+    // 新簡單/一般版本建構子
+    public DBHelper(Context context) {
+        super(context, DB_NAME, null, 1);
+        this.context = context;
+    }
     // 建構子(可以修改成僅有Context context)
-    public DBHelper(Context context, String name, CursorFactory factory,
+    /*public DBHelper(Context context, String name, CursorFactory factory,
                       int version) {
         super(context, name, factory, version);
-        DB_PATH = context.getDatabasePath(DB_NAME).getPath();
+        //DB_PATH = context.getDatabasePath(DB_NAME).getPath();
         Log.d(TAG,"路徑為"  + DB_PATH);
-    }
+    }*/
 
 
     // 需要資料庫的元件呼叫這個方法，這個方法在一般的應用都不需要修改
     public static SQLiteDatabase getDatabase(Context context) {
         if (database == null || !database.isOpen()) {
-            database = new DBHelper(context, DB_NAME,
-                    null, VERSION).getWritableDatabase();
+            database = new DBHelper(context).getWritableDatabase();
         }
         return database;
     }
@@ -70,7 +74,20 @@ public class DBHelper extends SQLiteOpenHelper {
     db.execSQL("DROP TABLE IF EXISTS"); //刪除舊有的資料表
     onCreate(db);
 }
-
+    //12.12新增open及close
+    public void opendatabase() {
+        String DB_PATH = context.getDatabasePath(DB_NAME).getPath();
+        if(database != null && database.isOpen()){
+            return;
+        }
+        database = SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
+    }
+    public void closedatabase() {
+        if(database != null){
+            database.close();
+        }
+    }
+    /*
     @Override
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
@@ -80,5 +97,5 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public synchronized void close() {
         super.close();
-    }
+    }*/
 }

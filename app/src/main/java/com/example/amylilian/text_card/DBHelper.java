@@ -45,6 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if (database == null || !database.isOpen()) {
             database = new DBHelper(context, DB_NAME,
                     null, VERSION).getWritableDatabase();
+            Log.d(TAG,"database is null: " + (database == null));
         }
         return database;
     }

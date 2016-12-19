@@ -46,7 +46,7 @@ public class DBActivity extends AppCompatActivity {
     }
 
     private void openDatabase(){
-        dbhelper = new DBHelper(this,null,null,1);  //待確認
+        dbhelper = new DBHelper(this);  //待確認
     }
     private void closeDatabase(){
         dbhelper.close();

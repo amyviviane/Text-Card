@@ -19,9 +19,10 @@ public class DBHelper extends SQLiteOpenHelper {
         + getApplicationContext().getPackageName();*/
 
     // 資料庫路徑***
+//    public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
     public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
     // 資料庫名稱
-    public static final String DB_NAME = "card.sql";
+    public static final String DB_NAME = "/card.sql";
     // 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
     public static final int VERSION = 1;
     // 資料庫物件，固定的欄位變數
@@ -73,10 +74,12 @@ public class DBHelper extends SQLiteOpenHelper {
     //oldVersion=舊的資料庫版本；newVersion=新的資料庫版本
     db.execSQL("DROP TABLE IF EXISTS"); //刪除舊有的資料表
     onCreate(db);
-}
+    }
+
     //12.12新增open及close
     public void opendatabase() {
-        String DB_PATH = context.getDatabasePath(DB_NAME).getPath();
+        String DB_PATH = context.getDatabasePath(DB_LOCATION + DB_NAME).getPath();
+        System.out.println(DB_PATH);
         if(database != null && database.isOpen()){
             return;
         }
@@ -87,15 +90,4 @@ public class DBHelper extends SQLiteOpenHelper {
             database.close();
         }
     }
-    /*
-    @Override
-    public void onOpen(SQLiteDatabase db) {
-        super.onOpen(db);
-        // TODO 每次成功打開數據庫後首先被執行
-    }
-
-    @Override
-    public synchronized void close() {
-        super.close();
-    }*/
 }

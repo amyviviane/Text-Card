@@ -63,6 +63,7 @@ public class StudyContentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_study_content);
 
         //呼叫建構子(寫進DBHelper,context換成this)
+
         DBHelper helper = new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
@@ -83,13 +84,30 @@ public class StudyContentActivity extends AppCompatActivity {
         try{
             //cursor = db.query(Table_Name, new String[]{ID,TRL}, ID + "< 10" , null, null, null, ID);
             //cursor = db.query(Table_Name, null, ID + " < 10" , new String[]{ID,TRL}, null, null, ID);
-            cursor = db.query(true, Table_Name,new String[]{ID,TRL}, ID + " < 10" ,  null, null, null,null,null);
+            // 印出資料表
+            Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+            System.out.println(db.getPath());
+            if (c.moveToFirst()) {
+                while ( !c.isAfterLast() ) {
+                    System.out.println(c.getString( c.getColumnIndex("name")));
+                    c.moveToNext();
+                }
+            }
+
+
+            cursor = db.query(Table_Name,new String[]{ID,TRL}, ID + " < ?" ,  new String[]{Integer.toString(10)}, null, null, ID);
 
             if (cursor != null){
-                String id = cursor.getString(cursor.getColumnIndex(ID));
-                String trl = cursor.getString(cursor.getColumnIndex(TRL));
-                text1.setText(trl);
-                Log.d(TAG, id + ":" + trl);
+                if (cursor.moveToFirst()) {
+                    String trl = cursor.getString(cursor.getColumnIndex(TRL));
+                    text1.setText(trl);
+//                    while ( !cursor.isAfterLast() ) {
+//                        int id = cursor.getInt(cursor.getColumnIndex(ID));
+//                        String trl = cursor.getString(cursor.getColumnIndex(TRL));
+//                        cursor.moveToNext();
+//                        System.out.println(id + ":" + trl);
+//                    }
+                }
             }
         } finally {
             if (cursor != null){

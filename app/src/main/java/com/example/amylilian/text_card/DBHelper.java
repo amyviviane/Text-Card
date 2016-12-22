@@ -1,11 +1,23 @@
 package com.example.amylilian.text_card;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.util.Scanner;
 
 import static java.security.AccessController.getContext;
 
@@ -14,15 +26,9 @@ import static java.security.AccessController.getContext;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    //"/data/data/com.example.amylilian.text_card/databases/"
-    /* private static String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/"
-        + getApplicationContext().getPackageName();*/
 
-    // 資料庫路徑***
-//    public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
-    public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
     // 資料庫名稱
-    public static final String DB_NAME = "/card.sql";
+    public static final String DB_NAME = "card.db";
     // 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
     public static final int VERSION = 1;
     // 資料庫物件，固定的欄位變數
@@ -36,58 +42,71 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
-    }
-    // 建構子(可以修改成僅有Context context)
-    /*public DBHelper(Context context, String name, CursorFactory factory,
-                      int version) {
-        super(context, name, factory, version);
-        //DB_PATH = context.getDatabasePath(DB_NAME).getPath();
-        Log.d(TAG,"路徑為"  + DB_PATH);
-    }*/
-
-
-    // 需要資料庫的元件呼叫這個方法，這個方法在一般的應用都不需要修改
-    public static SQLiteDatabase getDatabase(Context context) {
-        if (database == null || !database.isOpen()) {
-            database = new DBHelper(context).getWritableDatabase();
+        File f = new File(context.getFilesDir().getAbsolutePath() + this.DB_NAME);
+        if (f.exists()) {
+            database = SQLiteDatabase.openOrCreateDatabase(context.getFilesDir().getAbsolutePath() + this.DB_NAME, null);
+        } else {
+            CopyDB();
+            database = SQLiteDatabase.openOrCreateDatabase(context.getFilesDir().getAbsolutePath() + this.DB_NAME, null);
         }
-        return database;
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {  //覆寫並實作
-        String DATABASE_CREATE_TABLE =
-                "create table newCard("
-                        + "ID,"
-                        + "BeginTime,"
-                        + "EndTime,"
-                        + "ORG,"
-                        + "TRL,"
-                        + "EXT,"
-                        + "IMG"
-                        + ")";
-        db.execSQL(DATABASE_CREATE_TABLE);
+        CopyDB();
+        database = SQLiteDatabase.openOrCreateDatabase(context.getFilesDir().getAbsolutePath() + this.DB_NAME, null);
     }
+
+    public void CopyDB() {
+        InputStream in = null;
+        OutputStream out = null;
+        try {
+            in = this.context.getAssets().open(this.DB_NAME);
+            out = new FileOutputStream(context.getFilesDir().getAbsolutePath()
+                    + this.DB_NAME);
+            byte[] buffer = new byte[1024];
+            int read;
+            while((read = in.read(buffer)) != -1){
+                out.write(buffer, 0, read);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (in != null) {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (out != null) {
+            try {
+                out.flush();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     //oldVersion=舊的資料庫版本；newVersion=新的資料庫版本
-    db.execSQL("DROP TABLE IF EXISTS"); //刪除舊有的資料表
-    onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS"); //刪除舊有的資料表
+        onCreate(db);
     }
 
-    //12.12新增open及close
-    public void opendatabase() {
-        String DB_PATH = context.getDatabasePath(DB_LOCATION + DB_NAME).getPath();
-        System.out.println(DB_PATH);
-        if(database != null && database.isOpen()){
-            return;
+    @Override
+    public SQLiteDatabase getWritableDatabase() {
+        if (database == null) {
+            System.out.println("database is null");
         }
-        database = SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
-    }
-    public void closedatabase() {
-        if(database != null){
-            database.close();
-        }
+        return database;
     }
 }

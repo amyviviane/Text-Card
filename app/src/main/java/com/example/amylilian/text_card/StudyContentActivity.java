@@ -83,7 +83,16 @@ public class StudyContentActivity extends AppCompatActivity {
         try{
             //cursor = db.query(Table_Name, new String[]{ID,TRL}, ID + "< 10" , null, null, null, ID);
             //cursor = db.query(Table_Name, null, ID + " < 10" , new String[]{ID,TRL}, null, null, ID);
-            cursor = db.query(true, Table_Name,new String[]{ID,TRL}, ID + " < 10" ,  null, null, null,null,null);
+            Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+            if (c.moveToFirst()) {
+                while ( !c.isAfterLast() ) {
+                    System.out.println(c.getString( c.getColumnIndex("name")));
+                    c.moveToNext();
+                }
+            }
+
+
+            cursor = db.query(Table_Name,new String[]{ID,TRL}, ID + " < ?" ,  new String[]{Integer.toString(10)}, null, null, ID);
 
             if (cursor != null){
                 String id = cursor.getString(cursor.getColumnIndex(ID));

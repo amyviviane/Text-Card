@@ -93,4 +93,17 @@
         <item>join</item>
     </string-array>
 
+    <string-array name="activity_name">
+        <item>Test_pic</item>
+        <item>Test_sound</item>
+        <item>Test_word</item>
+    </string-array>
+
+    <!--分類個數-->
+    <string-array name="category_number">
+        <item>10</item>
+        <item>13</item>
+        <item>9</item>
+    </string-array>
+
 </resources>

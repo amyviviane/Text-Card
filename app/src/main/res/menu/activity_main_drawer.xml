@@ -9,11 +9,7 @@
         <item
             android:id="@+id/nav_ReviewTest"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="額外測驗" />
-        <item
-            android:id="@+id/nav_Review"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="已學習單字" />
+            android:title="測驗" />
         <item
             android:id="@+id/nav_SetUp"
             android:icon="@drawable/ic_menu_manage"

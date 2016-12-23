@@ -2,12 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amylilian.text_card">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
 
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -25,12 +28,18 @@
         <activity android:name=".StudyActivity"
             android:screenOrientation="portrait"/>
 
-        <!--移除掉ReviewTestActivity跟ReviewActivity-->
+        <!-- 移除掉ReviewTestActivity跟ReviewActivity -->
 
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
+        <activity android:name=".DBActivity" />
+        <activity android:name=".Test_pic" />
+        <activity android:name=".Test_sound" />
+        <activity android:name=".Test_word" />
+        <activity android:name=".Test_End_Activity"></activity>
+
 
         <activity android:name=".StudyContentActivity"
             android:screenOrientation="portrait"/>
@@ -39,10 +48,9 @@
         <activity android:name=".StudyContentEndActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".StudyResultActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".DBActivity">
+            android:screenOrientation="portrait">
         </activity>
+
     </application>
 
 </manifest>

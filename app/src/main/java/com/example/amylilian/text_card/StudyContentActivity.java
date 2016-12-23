@@ -81,9 +81,15 @@ public class StudyContentActivity extends AppCompatActivity {
         final int group_length = text_array.length;
 
         try{
-            //cursor = db.query(Table_Name, new String[]{ID,TRL}, ID + "< 10" , null, null, null, ID);
-            //cursor = db.query(Table_Name, null, ID + " < 10" , new String[]{ID,TRL}, null, null, ID);
-            cursor = db.query(true, Table_Name,new String[]{ID,TRL}, ID + " < 10" ,  null, null, null,null,null);
+            cursor = db.query(Table_Name, new String[]{ID,TRL}, ID + "< ?" , new String[]{Integer.toString(10)}, null, null, ID);
+            /*印出資料庫內容
+            Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type = 'table'", null);
+            if( c.moveToFirst()){
+                while ( !c.isAfterLast() ){
+                    System.out.println(c.getString(c.getColumnIndex("trl")));
+                    c.moveToNext();
+                }
+            }*/
 
             if (cursor != null){
                 String id = cursor.getString(cursor.getColumnIndex(ID));

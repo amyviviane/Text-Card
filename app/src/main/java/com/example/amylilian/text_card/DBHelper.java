@@ -14,10 +14,14 @@ import static java.security.AccessController.getContext;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
+
+
+
     //"/data/data/com.example.amylilian.text_card/databases/"
     /* private static String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/"
         + getApplicationContext().getPackageName();*/
 
+    /*
     // 資料庫路徑***
     public static final String DB_LOCATION ="/data/data/com.example.amylilian.text_card/database";
     // 資料庫名稱
@@ -35,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
-    }
+    }*/
     // 建構子(可以修改成僅有Context context)
     /*public DBHelper(Context context, String name, CursorFactory factory,
                       int version) {
@@ -44,7 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(TAG,"路徑為"  + DB_PATH);
     }*/
 
-
+/*
     // 需要資料庫的元件呼叫這個方法，這個方法在一般的應用都不需要修改
     public static SQLiteDatabase getDatabase(Context context) {
         if (database == null || !database.isOpen()) {
@@ -87,6 +91,7 @@ public class DBHelper extends SQLiteOpenHelper {
             database.close();
         }
     }
+    */
     /*
     @Override
     public void onOpen(SQLiteDatabase db) {

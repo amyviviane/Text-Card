@@ -71,11 +71,9 @@ public class StudyContentEndActivity extends AppCompatActivity {
             }
         });
     }
-    //1202新增:限制返回鍵
+    //返回
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-        }
-        return super.dispatchKeyEvent(event);
+    public void onBackPressed() {
     }
+
 }

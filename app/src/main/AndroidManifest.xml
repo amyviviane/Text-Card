@@ -2,16 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amylilian.text_card">
 
-    <!--限制直立-->
+    <!-- 限制直立 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
+        android:theme="@style/AppTheme">
 
-        <!--開始畫面設獨立-->
+        <!-- 開始畫面設獨立 -->
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,28 +22,31 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleInstance"></activity>
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--增加轉跳形式-->
-        <activity android:name=".StudyActivity"
-            android:launchMode="singleInstance"/>
+        <!-- 增加轉跳形式 -->
+        <activity
+            android:name=".StudyActivity"
+            android:launchMode="singleInstance" />
 
-        <!--移除掉ReviewTestActivity跟ReviewActivity-->
+        <!-- 移除掉ReviewTestActivity跟ReviewActivity -->
 
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
-
         <activity android:name=".StudyContentActivity" />
-        <activity android:name=".StudyContentMiddleActivity"
-            android:launchMode="singleTop"/>
-        <activity android:name=".StudyContentEndActivity"/>
-        <activity android:name=".StudyResultActivity"/>
-
-        <activity android:name=".DBActivity">
-        </activity>
+        <activity
+            android:name=".StudyContentMiddleActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".StudyContentEndActivity" />
+        <activity android:name=".StudyResultActivity" />
+        <activity android:name=".DBActivity" />
+        <activity android:name=".Test_pic" />
+        <activity android:name=".Test_sound" />
+        <activity android:name=".Test_word" />
+        <activity android:name=".Test_End_Activity"></activity>
     </application>
 
 </manifest>

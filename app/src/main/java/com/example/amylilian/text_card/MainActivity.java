@@ -102,10 +102,6 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this , ReviewTestActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_Review) {
-            Intent intent = new Intent(this , ReviewActivity.class);
-            startActivity(intent);
-
         } else if (id == R.id.nav_SetUp) {
             Intent intent = new Intent(this , SettingsActivity.class);
             startActivity(intent);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_test__end_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.amylilian.text_card.Test_End_Activity"
+    android:background="@drawable/bg_test2">
+
+    <ImageView
+        android:layout_width="284dp"
+        android:layout_height="304dp"
+        app:srcCompat="@drawable/talk2"
+        android:id="@+id/imageView16"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="112dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/btm2_gotest_a"
+        android:layout_below="@+id/imageView16"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:id="@+id/imageButton9"
+        android:scaleType="centerCrop"
+        android:background="@android:color/transparent"/>
+
+    <ImageButton
+        android:layout_width="112dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/btm2_golearn_a"
+        android:layout_below="@+id/imageButton9"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/imageButton10"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:text="題數"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="63dp"
+        android:layout_marginBottom="95dp"
+        android:id="@+id/textView22"
+        android:textSize="36sp"
+        android:layout_alignBottom="@+id/imageView16"
+        android:layout_alignStart="@+id/imageView16" />
+</RelativeLayout>

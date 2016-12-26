@@ -51,17 +51,17 @@ public class ReviewTestActivity extends AppCompatActivity {
         imageButton1_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton1_1.setImageResource(R.drawable.btm_group01_b);
+                imageButton1_1.setImageResource(R.drawable.btm2_group01_b);
                 c_number = Integer.parseInt(category[0]);
-                //trans(c_number);
+                trans(c_number);
             }
         });
         imageButton1_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton1_2.setImageResource(R.drawable.btm_group01_b);
+                imageButton1_2.setImageResource(R.drawable.btm2_group02_b);
                 c_number = Integer.parseInt(category[1]);
-                //trans(c_number);
+                trans(c_number);
             }
         });
 
@@ -70,38 +70,29 @@ public class ReviewTestActivity extends AppCompatActivity {
     //i == tatal
     public void trans(int i) {
         x = (int) (Math.random() * 4);
+
+        extra = new Bundle();
+        extra.putInt("total",i);
+        extra.putInt("count",1);
+
         switch (x){
             case 0:
-                //package
-                extra = new Bundle();
-                extra.putInt("total",i);
 
                 //send
                 intent = new Intent(context , Test_pic.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 1:
-                //package
-                extra = new Bundle();
-                extra.putInt("total",i);
 
                 //send
                 intent = new Intent(context , Test_sound.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 2:
-                //package
-                extra = new Bundle();
-                extra.putInt("total",i);
-                extra.putInt("count",1);
 
                 //send
                 intent = new Intent(context , Test_word.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
         }
+        intent.putExtras(extra);
+        startActivity(intent);
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -32,17 +31,18 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         text1 = (TextView) findViewById(R.id.text1View_studymiddle);
 
         //get temply text string
-        String[] text_array = getResources().getStringArray(R.array.temp_text);
-
-        //get total string[] long
-        final int group_length = text_array.length;
+        //String[] text_array = getResources().getStringArray(R.array.temp_text);
 
         //get bundle
         Bundle extras = getIntent().getExtras();
         int length = extras.getInt("length");
         final int count = extras.getInt("count");
+        final String[] text_array = extras.getStringArray("text");
 
-        //print first word
+        //get total string[] long
+        final int group_length = text_array.length;
+
+        //print word
         text1.setText(text_array[count]);
 
         context = this;
@@ -59,6 +59,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count - 1);
+                    extras.putStringArray("text",text_array);
 
                     intent = new Intent(context, StudyContentMiddleActivity.class);
                     intent.putExtras(extras);
@@ -80,6 +81,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     intent = new Intent(context, StudyContentEndActivity.class);
                     intent.putExtras(extras);
                     startActivity(intent);
+                    //試試finish
+                    finish();
                 }else {
                     //put value into Bundle
                     final Bundle extras = new Bundle();
@@ -89,13 +92,15 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     intent = new Intent(context, StudyContentMiddleActivity.class);
                     intent.putExtras(extras);
                     startActivity(intent);
+                    //試試finish
+                    finish();
                 }
             }
         });
     }
     //返回
-    @Override
-    public void onBackPressed() {
-    }
+    //@Override
+    //public void onBackPressed() {
+    //}
 
 }

@@ -60,6 +60,7 @@ public class Test_pic extends AppCompatActivity {
 
         c.setText(count);
 
+        context = this;
         if (total == count){
             next.setImageResource(R.drawable.btm_end_a);
             next.setOnClickListener(new View.OnClickListener() {

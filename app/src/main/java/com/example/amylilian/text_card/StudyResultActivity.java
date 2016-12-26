@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 public class StudyResultActivity extends AppCompatActivity {
 
     ImageButton gotostudy;
+    ImageButton gototest;
 
     //add intent
     private Context context;
@@ -22,8 +23,18 @@ public class StudyResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_study_result);
 
         gotostudy = (ImageButton) findViewById(R.id.gotoButton_studyresult);
+        gototest = (ImageButton) findViewById(R.id.imageButton);
 
         context = this;
+        gototest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gototest.setImageResource(R.drawable.btm_gotest_b);
+
+                intent = new Intent(context , ReviewTestActivity.class);
+                startActivity(intent);
+            }
+        });
         gotostudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

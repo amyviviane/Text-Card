@@ -27,19 +27,17 @@
         <!--限制直立-->
         <activity android:name=".StudyActivity"
             android:screenOrientation="portrait"/>
-
         <!-- 移除掉ReviewTestActivity跟ReviewActivity -->
-
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".DBActivity" />
+        <activity android:name=".ReviewTestActivity" />
         <activity android:name=".Test_pic" />
         <activity android:name=".Test_sound" />
         <activity android:name=".Test_word" />
         <activity android:name=".Test_End_Activity"></activity>
-
 
         <activity android:name=".StudyContentActivity"
             android:screenOrientation="portrait"/>

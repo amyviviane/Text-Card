@@ -58,6 +58,7 @@ public class Test_word extends AppCompatActivity {
 
         c.setText(count);
 
+        context = this;
         if (total == count){
             nextpage.setImageResource(R.drawable.btm_end_a);
             nextpage.setOnClickListener(new View.OnClickListener() {

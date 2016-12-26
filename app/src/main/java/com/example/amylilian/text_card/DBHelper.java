@@ -42,6 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
+
         File f = new File(context.getFilesDir().getAbsolutePath() + this.DB_NAME);
         if (f.exists()) {
             database = SQLiteDatabase.openOrCreateDatabase(context.getFilesDir().getAbsolutePath() + this.DB_NAME, null);
@@ -93,7 +94,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

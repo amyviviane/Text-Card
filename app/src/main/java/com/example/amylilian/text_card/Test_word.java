@@ -33,7 +33,8 @@ public class Test_word extends AppCompatActivity {
     private Context context;
     private Intent intent;
 
-    ImageView nextpage;
+    //ImageButton next page
+    ImageButton nextpage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class Test_word extends AppCompatActivity {
         t2 = (TextView) findViewById(R.id.textView4);
         t3 = (TextView) findViewById(R.id.textView7);
         t4 = (TextView) findViewById(R.id.textView8);
-        nextpage = (ImageView) findViewById(R.id.nextpage_imgbun);
+        nextpage = (ImageButton) findViewById(R.id.nextpage_imgbun);
 
         //get bundle
         Bundle extras = getIntent().getExtras();
@@ -84,6 +85,9 @@ public class Test_word extends AppCompatActivity {
     public void trans(int x,int y) {
         Bundle extra;
         int i = (int) (Math.random() * 3);
+
+        System.out.println(i);
+
         //add Bundle
         extra = new Bundle();
         //package

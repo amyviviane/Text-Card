@@ -12,10 +12,13 @@
     android:background="@drawable/bg_learn"
     tools:context="com.example.amylilian.text_card.StudyActivity">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="54dp">
 
         <LinearLayout
             android:layout_width="match_parent"

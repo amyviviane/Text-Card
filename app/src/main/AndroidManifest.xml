@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +26,6 @@
         <!--限制直立-->
         <activity android:name=".StudyActivity"
             android:screenOrientation="portrait"/>
-        <!-- 移除掉ReviewTestActivity跟ReviewActivity -->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />

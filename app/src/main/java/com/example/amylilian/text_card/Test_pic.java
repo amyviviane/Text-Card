@@ -58,7 +58,7 @@ public class Test_pic extends AppCompatActivity {
         final int total = extras.getInt("total");
         final int count = extras.getInt("count");
 
-        c.setText(count);
+        c.setText(count + "");
 
         context = this;
         if (total == count){
@@ -84,7 +84,7 @@ public class Test_pic extends AppCompatActivity {
     //x=total ; y= new count
     public void trans(int x,int y) {
         Bundle extra;
-        int i = (int) (Math.random() * 4);
+        int i = (int) (Math.random() * 3);
         switch (i) {
             case 0:
                 //add Bundle

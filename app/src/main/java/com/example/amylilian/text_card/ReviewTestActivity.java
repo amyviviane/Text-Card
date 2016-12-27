@@ -69,7 +69,7 @@ public class ReviewTestActivity extends AppCompatActivity {
 
     //i == tatal
     public void trans(int i) {
-        x = (int) (Math.random() * 4);
+        x = (int) (Math.random() * 3);
 
         extra = new Bundle();
         extra.putInt("total",i);

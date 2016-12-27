@@ -59,6 +59,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 intent = new Intent(context, StudyContentMiddleActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
+                //試試finish
+                finish();
             }
         });
         end_botton.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +70,14 @@ public class StudyContentEndActivity extends AppCompatActivity {
 
                 intent = new Intent(context, StudyResultActivity.class);
                 startActivity(intent);
+                //試試finish
+                finish();
             }
         });
     }
     //返回
-    @Override
-    public void onBackPressed() {
-    }
+    //@Override
+    //public void onBackPressed() {
+    //}
 
 }

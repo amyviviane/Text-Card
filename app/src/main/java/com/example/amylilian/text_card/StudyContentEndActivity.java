@@ -28,21 +28,22 @@ public class StudyContentEndActivity extends AppCompatActivity {
         sound_botton = (ImageButton) findViewById(R.id.soundButton_studyend);
         previous_botton = (ImageButton) findViewById(R.id.previouspageButton_studyend);
         end_botton = (ImageButton) findViewById(R.id.endButton_studyend);
-
-        //喂！！這個重要的不能忘記加呀www！！！
         text1 = (TextView) findViewById(R.id.text1View_studyend);
 
         //get temply text string
-        String[] text_array = getResources().getStringArray(R.array.temp_text);
+        // String[] text_array = getResources().getStringArray(R.array.temp_text);
 
-        //get total string[] long
-        final int group_length = text_array.length ; //修改 (沒有-1）
+
 
         //get bundle(新增2016.11.30)
         Bundle extras = getIntent().getExtras();
         final int count = extras.getInt("count");
+        final String[] text_array = extras.getStringArray("text");
 
-        //print first word
+        //get total string[] long
+        final int group_length = text_array.length ; //修改 (沒有-1）
+
+        //print word
         text1.setText(text_array[count]);
 
         context = this;
@@ -55,6 +56,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 final Bundle extras = new Bundle();
                 extras.putInt("length",group_length);
                 extras.putInt("count",count - 1);
+                extras.putStringArray("text",text_array);
 
                 intent = new Intent(context, StudyContentMiddleActivity.class);
                 intent.putExtras(extras);

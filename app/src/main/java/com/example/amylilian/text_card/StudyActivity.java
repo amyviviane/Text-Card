@@ -70,7 +70,7 @@ public class StudyActivity extends AppCompatActivity {
         //Cursor
         Cursor cursor = null;
 
-        cursor = db.query(Table_Name,new String[]{ID,TRL}, ID + " < ?" ,  new String[]{Integer.toString(10)}, null, null, ID);
+        cursor = db.query(Table_Name, new String[] {TRL}, null, null, null, null, null, null);
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -81,6 +81,12 @@ public class StudyActivity extends AppCompatActivity {
                 }
             }
         }
+
+        System.out.println(list.size());
+        System.out.println(list.indexOf(0));
+        System.out.println(list.indexOf(1));
+        System.out.println(list.indexOf(100));
+
         if (cursor != null){
             cursor.close();
             db.close();
@@ -93,9 +99,13 @@ public class StudyActivity extends AppCompatActivity {
         //copy to many arratlist
         String[] AllTrl = list.toArray(new String[0]);
         final String[] type1_1 = new String[12];
-        System.arraycopy(AllTrl,1,type1_1,0,12);
+        System.arraycopy(AllTrl,1,type1_1,0,type1_1.length);
+
+        //look
+        System.out.println(type1_1[0] + " " + type1_1[0]);
+
         final String[] type1_2 = new String[12];
-        System.arraycopy(AllTrl,1,type1_2,0,12);
+        System.arraycopy(AllTrl,13,type1_2,0,type1_2.length);
 /*
         String[] type2_1 = new String[11];
         String[] type2_2 = new String[10];

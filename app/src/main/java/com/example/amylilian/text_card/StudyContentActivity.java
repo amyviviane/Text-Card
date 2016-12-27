@@ -100,14 +100,9 @@ public class StudyContentActivity extends AppCompatActivity {
                 intent = new Intent(context , StudyContentMiddleActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
-                //試試finish
                 finish();
             }
         });
     }
-    //返回
-    //@Override
-    //public void onBackPressed() {
-    //}
 
 }

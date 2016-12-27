@@ -4,38 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_review_test"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/bg_test"
-    android:orientation="vertical"
-    android:layout_gravity="center"
     tools:context="com.example.amylilian.text_card.ReviewTestActivity">
 
 
-    <ImageButton
-        android:layout_width="112dp"
-        android:layout_height="48dp"
-        app:srcCompat="@drawable/btm2_group01_a"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:id="@+id/test_imageButton1_1"
-        android:scaleType="centerCrop"
-        android:background="@android:color/transparent"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:layout_width="112dp"
-        android:layout_height="48dp"
-        app:srcCompat="@drawable/btm2_group02_a"
-        android:layout_marginEnd="32dp"
-        android:id="@+id/test_imageButton1_2"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:layout_alignTop="@+id/test_imageButton1_1"
-        android:layout_alignParentEnd="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm2_group01_a"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:id="@+id/test_imageButton1_1"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"/>
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm2_group02_a"
+                    android:layout_marginEnd="32dp"
+                    android:id="@+id/test_imageButton1_2"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:layout_alignTop="@+id/test_imageButton1_1"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

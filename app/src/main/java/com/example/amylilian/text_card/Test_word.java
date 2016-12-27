@@ -56,7 +56,7 @@ public class Test_word extends AppCompatActivity {
         final int total = extras.getInt("total");
         final int count = extras.getInt("count");
 
-        c.setText(count);
+        c.setText(count + "");
 
         context = this;
         if (total == count){
@@ -83,41 +83,24 @@ public class Test_word extends AppCompatActivity {
     //x=total ; y= new count
     public void trans(int x,int y) {
         Bundle extra;
-        int i = (int) (Math.random() * 4);
+        int i = (int) (Math.random() * 3);
+        //add Bundle
+        extra = new Bundle();
+        //package
+        extra.putInt("total",x);
+        extra.putInt("count",y + 1);
         switch (i){
             case 0:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total",x);
-                extra.putInt("count",y + 1);
-
                 intent = new Intent(context , Test_pic.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 1:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total",x);
-                extra.putInt("count",y + 1);
-
                 intent = new Intent(context , Test_sound.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 2:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total",x);
-                extra.putInt("count",y + 1);
-
                 intent = new Intent(context , Test_word.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
         }
+        intent.putExtras(extra);
+        startActivity(intent);
     }
 }

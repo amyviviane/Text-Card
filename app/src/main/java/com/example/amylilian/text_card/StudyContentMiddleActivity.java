@@ -77,6 +77,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count + 1);
+                    extras.putStringArray("text",text_array);
 
                     intent = new Intent(context, StudyContentEndActivity.class);
                     intent.putExtras(extras);
@@ -88,6 +89,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count + 1);
+                    extras.putStringArray("text",text_array);
 
                     intent = new Intent(context, StudyContentMiddleActivity.class);
                     intent.putExtras(extras);

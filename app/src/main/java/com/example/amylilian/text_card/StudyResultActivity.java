@@ -33,6 +33,7 @@ public class StudyResultActivity extends AppCompatActivity {
 
                 intent = new Intent(context , ReviewTestActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         gotostudy.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class StudyResultActivity extends AppCompatActivity {
 
                 intent = new Intent(context , StudyActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

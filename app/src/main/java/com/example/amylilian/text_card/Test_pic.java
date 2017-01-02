@@ -85,40 +85,24 @@ public class Test_pic extends AppCompatActivity {
     public void trans(int x,int y) {
         Bundle extra;
         int i = (int) (Math.random() * 3);
+        //add Bundle
+        extra = new Bundle();
+        //package
+        extra.putInt("total", x);
+        extra.putInt("count", y + 1);
         switch (i) {
             case 0:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total", x);
-                extra.putInt("count", y + 1);
-
                 intent = new Intent(context, Test_pic.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 1:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total", x);
-                extra.putInt("count", y + 1);
 
                 intent = new Intent(context, Test_sound.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
             case 2:
-                //add Bundle
-                extra = new Bundle();
-                //package
-                extra.putInt("total", x);
-                extra.putInt("count", y + 1);
-
                 intent = new Intent(context, Test_word.class);
-                intent.putExtras(extra);
-                startActivity(intent);
                 break;
         }
+        intent.putExtras(extra);
+        startActivity(intent);
     }
 }

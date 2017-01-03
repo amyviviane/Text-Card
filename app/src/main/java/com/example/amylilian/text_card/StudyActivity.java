@@ -42,6 +42,11 @@ public class StudyActivity extends AppCompatActivity {
     private ArrayList<String> list = new ArrayList<>();
 
     private DBHelper dbHelper;
+
+    //呼叫建構子(寫進DBHelper,context換成this)
+    DBHelper helper = new DBHelper(this);
+    SQLiteDatabase db = helper.getWritableDatabase();
+
     private SQLiteDatabase copydb(String dbfile){
         try{
             //判斷資料庫檔案是否存在
@@ -69,76 +74,6 @@ public class StudyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
-
-        //呼叫建構子(寫進DBHelper,context換成this)
-        DBHelper helper = new DBHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
-
-        //Cursor
-        Cursor cursor = null;
-
-        cursor = db.query(Table_Name, new String[] {TRL}, null, null, null, null, null, null);
-
-        if (cursor != null){
-            while (cursor.moveToNext()) {
-                String trl = cursor.getString(cursor.getColumnIndex(TRL));
-                list.add(trl);
-            }
-        }
-
-        if (cursor != null){
-            cursor.close();
-            db.close();
-            helper.close();
-        }
-
-        //copy to many arratlist
-        String[] AllTrl = list.toArray(new String[0]);
-
-        final String[] type1_1 = new String[12];
-        System.arraycopy(AllTrl,1,type1_1,0,type1_1.length);
-        final String[] type1_2 = new String[12];
-        System.arraycopy(AllTrl,13,type1_2,0,type1_2.length);
-
-        final String[] type2_1 = new String[11];
-        System.arraycopy(AllTrl,26,type2_1,0,type2_1.length);
-        final String[] type2_2 = new String[10];
-        System.arraycopy(AllTrl,37,type2_2,0,type2_2.length);
-        final String[] type2_3 = new String[10];
-        System.arraycopy(AllTrl,47,type2_3,0,type2_3.length);
-
-        final String[] type3_1 = new String[8];
-        System.arraycopy(AllTrl,58,type3_1,0,type3_1.length);
-        final String[] type3_2 = new String[8];
-        System.arraycopy(AllTrl,66,type3_2,0,type3_2.length);
-
-        final String[] type4_1 = new String[10];
-        System.arraycopy(AllTrl,75,type4_1,0,type4_1.length);
-        final String[] type4_2 = new String[10];
-        System.arraycopy(AllTrl,85,type4_2,0,type4_2.length);
-
-        final String[] type5_1 = new String[10];
-        System.arraycopy(AllTrl,96,type5_1,0,type5_1.length);
-        final String[] type5_2 = new String[9];
-        System.arraycopy(AllTrl,106,type5_2,0,type5_2.length);
-
-        final String[] type6_1 = new String[10];
-        System.arraycopy(AllTrl,116,type6_1,0,type6_1.length);
-        final String[] type6_2 = new String[9];
-        System.arraycopy(AllTrl,126,type6_2,0,type6_2.length);
-
-        final String[] type7 = new String[13];
-        System.arraycopy(AllTrl,136,type7,0,type7.length);
-
-        final String[] type8_1 = new String[9];
-        System.arraycopy(AllTrl,150,type8_1,0,type8_1.length);
-        final String[] type8_2 = new String[9];
-        System.arraycopy(AllTrl,159,type8_2,0,type8_2.length);
-
-        final String[] type9_1 = new String[11];
-        System.arraycopy(AllTrl,169,type9_1,0,type9_1.length);
-        final String[] type9_2 = new String[11];
-        System.arraycopy(AllTrl,180,type9_2,0,type9_2.length);
 
         //人體
         imageButton1_1 = (ImageButton) findViewById(R.id.imageButton1_1);
@@ -173,7 +108,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton1_1.setImageResource(R.drawable.btm_group01_b);
-                extras.putStringArray("text",type1_1);
+                extras.putStringArray("text",gettrl("type1_1"));
                 intent = new Intent(context , StudyContentActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
@@ -184,7 +119,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton1_2.setImageResource(R.drawable.btm_group02_b);
-                extras.putStringArray("text",type1_2);
+                extras.putStringArray("text",gettrl("type1_2"));
                 transfer();
             }
         });
@@ -192,7 +127,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_1.setImageResource(R.drawable.btm_group03_b);
-                extras.putStringArray("text",type2_1);
+                extras.putStringArray("text",gettrl("type2_1"));
                 transfer();
             }
         });
@@ -200,7 +135,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_2.setImageResource(R.drawable.btm_group04_b);
-                extras.putStringArray("text",type2_2);
+                extras.putStringArray("text",gettrl("type2_2"));
                 transfer();
             }
         });
@@ -208,7 +143,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_3.setImageResource(R.drawable.btm_group05_b);
-                extras.putStringArray("text",type2_3);
+                extras.putStringArray("text",gettrl("type2_3"));
                 transfer();
             }
         });
@@ -216,7 +151,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton3_1.setImageResource(R.drawable.btm_group06_b);
-                extras.putStringArray("text",type3_1);
+                extras.putStringArray("text",gettrl("type3_1"));
                 transfer();
             }
         });
@@ -224,7 +159,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton3_2.setImageResource(R.drawable.btm_group07_b);
-                extras.putStringArray("text",type3_2);
+                extras.putStringArray("text",gettrl("type3_2"));
                 transfer();
             }
         });
@@ -232,7 +167,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton4_1.setImageResource(R.drawable.btm_group08_b);
-                extras.putStringArray("text",type4_1);
+                extras.putStringArray("text",gettrl("type4_1"));
                 transfer();
             }
         });
@@ -240,7 +175,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton4_2.setImageResource(R.drawable.btm_group09_b);
-                extras.putStringArray("text",type4_2);
+                extras.putStringArray("text",gettrl("type4_2"));
                 transfer();
             }
         });
@@ -248,7 +183,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton5_1.setImageResource(R.drawable.btm_group10_b);
-                extras.putStringArray("text",type5_1);
+                extras.putStringArray("text",gettrl("type5_1"));
                 transfer();
             }
         });
@@ -256,7 +191,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton5_2.setImageResource(R.drawable.btm_group11_b);
-                extras.putStringArray("text",type5_2);
+                extras.putStringArray("text",gettrl("type5_2"));
                 transfer();
             }
         });
@@ -264,7 +199,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton6_1.setImageResource(R.drawable.btm_group12_b);
-                extras.putStringArray("text",type6_1);
+                extras.putStringArray("text",gettrl("type6_1"));
                 transfer();
             }
         });
@@ -272,7 +207,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton6_2.setImageResource(R.drawable.btm_group13_b);
-                extras.putStringArray("text",type6_2);
+                extras.putStringArray("text",gettrl("type6_2"));
                 transfer();
             }
         });
@@ -280,7 +215,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton7.setImageResource(R.drawable.btm_group14_b);
-                extras.putStringArray("text",type7);
+                extras.putStringArray("text",gettrl("type7"));
                 transfer();
             }
         });
@@ -288,7 +223,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton8_1.setImageResource(R.drawable.btm_group15_b);
-                extras.putStringArray("text",type8_1);
+                extras.putStringArray("text",gettrl("type8_1"));
                 transfer();
             }
         });
@@ -296,7 +231,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton8_2.setImageResource(R.drawable.btm_group16_b);
-                extras.putStringArray("text",type8_2);
+                extras.putStringArray("text",gettrl("type8_2"));
                 transfer();
             }
         });
@@ -304,7 +239,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton9_1.setImageResource(R.drawable.btm_group17_b);
-                extras.putStringArray("text",type9_1);
+                extras.putStringArray("text",gettrl("type9_1"));
                 transfer();
             }
         });
@@ -312,7 +247,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton9_2.setImageResource(R.drawable.btm_group18_b);
-                extras.putStringArray("text",type9_2);
+                extras.putStringArray("text",gettrl("type9_2"));
                 transfer();
             }
         });
@@ -322,5 +257,105 @@ public class StudyActivity extends AppCompatActivity {
         intent = new Intent(context , StudyContentActivity.class);
         intent.putExtras(extras);
         startActivity(intent);
+    }
+
+    public String[] gettrl(String type){
+
+        //Cursor
+        Cursor cursor = null;
+
+        cursor = db.query(Table_Name, new String[] {TRL}, null, null, null, null, null, null);
+
+        if (cursor != null){
+            while (cursor.moveToNext()) {
+                String trl = cursor.getString(cursor.getColumnIndex(TRL));
+                list.add(trl);
+            }
+        }
+
+        if (cursor != null){
+            cursor.close();
+            db.close();
+            helper.close();
+        }
+
+        //copy to many arratlist
+        String[] AllTrl = list.toArray(new String[0]);
+
+        switch (type){
+            case "type1_1":
+                String[] type1_1 = new String[12];
+                System.arraycopy(AllTrl,1,type1_1,0,type1_1.length);
+                return type1_1;
+            case "type1_2":
+                String[] type1_2 = new String[12];
+                System.arraycopy(AllTrl,13,type1_2,0,type1_2.length);
+                return type1_2;
+            case "type2_1":
+                String[] type2_1 = new String[11];
+                System.arraycopy(AllTrl,26,type2_1,0,type2_1.length);
+                return  type2_1;
+            case "type2_2":
+                String[] type2_2 = new String[10];
+                System.arraycopy(AllTrl,37,type2_2,0,type2_2.length);
+                return  type2_2;
+            case "type2_3":
+                String[] type2_3 = new String[10];
+                System.arraycopy(AllTrl,47,type2_3,0,type2_3.length);
+                return  type2_3;
+            case "type3_1":
+                String[] type3_1 = new String[8];
+                System.arraycopy(AllTrl,58,type3_1,0,type3_1.length);
+                return  type3_1;
+            case "type3_2":
+                String[] type3_2 = new String[8];
+                System.arraycopy(AllTrl,66,type3_2,0,type3_2.length);
+                return  type3_2;
+            case "type4_1":
+                String[] type4_1 = new String[10];
+                System.arraycopy(AllTrl,75,type4_1,0,type4_1.length);
+                return type4_1;
+            case "type4_2":
+                String[] type4_2 = new String[10];
+                System.arraycopy(AllTrl,85,type4_2,0,type4_2.length);
+                return type4_2;
+            case "type5_1":
+                String[] type5_1 = new String[10];
+                System.arraycopy(AllTrl,96,type5_1,0,type5_1.length);
+                return type5_1;
+            case "type5_2":
+                String[] type5_2 = new String[9];
+                System.arraycopy(AllTrl,106,type5_2,0,type5_2.length);
+                return type5_2;
+            case "type6_1":
+                String[] type6_1 = new String[10];
+                System.arraycopy(AllTrl,116,type6_1,0,type6_1.length);
+                return type6_1;
+            case "type6_2":
+                String[] type6_2 = new String[9];
+                System.arraycopy(AllTrl,126,type6_2,0,type6_2.length);
+                return type6_2;
+            case "type7":
+                String[] type7 = new String[13];
+                System.arraycopy(AllTrl,136,type7,0,type7.length);
+                return type7;
+            case "type8_1":
+                String[] type8_1 = new String[9];
+                System.arraycopy(AllTrl,150,type8_1,0,type8_1.length);
+                return type8_1;
+            case "type8_2":
+                String[] type8_2 = new String[9];
+                System.arraycopy(AllTrl,159,type8_2,0,type8_2.length);
+                return type8_2;
+            case "type9_1":
+                String[] type9_1 = new String[11];
+                System.arraycopy(AllTrl,169,type9_1,0,type9_1.length);
+                return type9_1;
+            case "type9_2":
+                String[] type9_2 = new String[11];
+                System.arraycopy(AllTrl,180,type9_2,0,type9_2.length);
+                return type9_2;
+        }
+
     }
 }

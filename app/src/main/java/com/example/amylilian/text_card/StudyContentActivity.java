@@ -3,6 +3,7 @@ package com.example.amylilian.text_card;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ public class StudyContentActivity extends AppCompatActivity {
     //add intent
     private Context context;
     private Intent intent;
-
+    private MediaPlayer mediaPlayer;
 
     private static final String TAG = "StudyContentActivity";
 
@@ -101,6 +102,14 @@ public class StudyContentActivity extends AppCompatActivity {
                 intent.putExtras(extras);
                 startActivity(intent);
                 finish();
+            }
+        });
+        sound_botton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
+                mediaPlayer.start();
             }
         });
     }

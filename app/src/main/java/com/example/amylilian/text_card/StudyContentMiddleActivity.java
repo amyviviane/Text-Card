@@ -2,6 +2,7 @@ package com.example.amylilian.text_card;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
     ImageButton previous_botton;
     ImageButton next_botton;
     TextView text1;
+    private MediaPlayer mediaPlayer;
 
     //add intent
     private Context context;
@@ -97,6 +99,14 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     //試試finish
                     finish();
                 }
+            }
+        });
+        sound_botton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
+                mediaPlayer.start();
             }
         });
     }

@@ -41,11 +41,6 @@ public class StudyActivity extends AppCompatActivity {
     //ArrayList
     private ArrayList<String> list = new ArrayList<>();
 
-    private DBHelper dbHelper;
-
-    //呼叫建構子(寫進DBHelper,context換成this)
-    DBHelper helper = new DBHelper(this);
-    SQLiteDatabase db = helper.getWritableDatabase();
 
     private SQLiteDatabase copydb(String dbfile){
         try{
@@ -69,6 +64,12 @@ public class StudyActivity extends AppCompatActivity {
         }
         return null;
     }
+
+    //private DBHelper dbHelper;
+
+    //呼叫建構子(寫進DBHelper,context換成this)
+    DBHelper helper = new DBHelper(context);
+    SQLiteDatabase db = helper.getWritableDatabase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -355,6 +356,8 @@ public class StudyActivity extends AppCompatActivity {
                 String[] type9_2 = new String[11];
                 System.arraycopy(AllTrl,180,type9_2,0,type9_2.length);
                 return type9_2;
+            default:
+                return null;
         }
 
     }

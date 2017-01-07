@@ -51,6 +51,7 @@ public class Test_word extends AppCompatActivity {
         t3 = (TextView) findViewById(R.id.textView7);
         t4 = (TextView) findViewById(R.id.textView8);
         nextpage = (ImageButton) findViewById(R.id.nextpage_imgbun);
+        c = (TextView) findViewById(R.id.textView21);
 
         //get bundle
         Bundle extras = getIntent().getExtras();

@@ -13,13 +13,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
-import static com.example.amylilian.text_card.DBColumns.ID;
 import static com.example.amylilian.text_card.DBColumns.TRL;
 import static com.example.amylilian.text_card.DBColumns.Table_Name;
-import static com.example.amylilian.text_card.DBHelper.DB_NAME;
 
 public class StudyActivity extends AppCompatActivity {
 
@@ -100,7 +97,6 @@ public class StudyActivity extends AppCompatActivity {
 
         final String[] type1_1 = new String[12];
         System.arraycopy(AllTrl,1,type1_1,0,type1_1.length);
-
         final String[] type1_2 = new String[12];
         System.arraycopy(AllTrl,13,type1_2,0,type1_2.length);
 
@@ -144,22 +140,31 @@ public class StudyActivity extends AppCompatActivity {
         final String[] type9_2 = new String[11];
         System.arraycopy(AllTrl,180,type9_2,0,type9_2.length);
 
+        //人體
         imageButton1_1 = (ImageButton) findViewById(R.id.imageButton1_1);
         imageButton1_2 = (ImageButton) findViewById(R.id.imageButton1_2);
+        //動物
         imageButton2_1 = (ImageButton) findViewById(R.id.imageButton2_1);
         imageButton2_2 = (ImageButton) findViewById(R.id.imageButton2_2);
-        //imageButton2_3 = (ImageButton) findViewById(R.id.imageButton2_3);
+        imageButton2_3 = (ImageButton) findViewById(R.id.imageButton2_3);
+        //鳥類
         imageButton3_1 = (ImageButton) findViewById(R.id.imageButton3_1);
-        //imageButton3_2 = (ImageButton) findViewById(R.id.imageButton3_2);
+        imageButton3_2 = (ImageButton) findViewById(R.id.imageButton3_2);
+        //昆蟲
         imageButton4_1 = (ImageButton) findViewById(R.id.imageButton4_1);
         imageButton4_2 = (ImageButton) findViewById(R.id.imageButton4_2);
+        //水中生物
         imageButton5_1 = (ImageButton) findViewById(R.id.imageButton5_1);
         imageButton5_2 = (ImageButton) findViewById(R.id.imageButton5_2);
+        //植物
         imageButton6_1 = (ImageButton) findViewById(R.id.imageButton6_1);
         imageButton6_2 = (ImageButton) findViewById(R.id.imageButton6_2);
+        //蔬菜
         imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
+        //水果
         imageButton8_1 = (ImageButton) findViewById(R.id.imageButton8_1);
         imageButton8_2 = (ImageButton) findViewById(R.id.imageButton8_2);
+        //食品
         imageButton9_1 = (ImageButton) findViewById(R.id.imageButton9_1);
         imageButton9_2 = (ImageButton) findViewById(R.id.imageButton9_2);
 
@@ -199,14 +204,14 @@ public class StudyActivity extends AppCompatActivity {
                 transfer();
             }
         });
-//        imageButton2_3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                imageButton2_3.setImageResource(R.drawable.btm_group05_b);
-//                extras.putStringArray("text",type2_3);
-//                transfer();
-//            }
-//        });
+        imageButton2_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageButton2_3.setImageResource(R.drawable.btm_group05_b);
+                extras.putStringArray("text",type2_3);
+                transfer();
+            }
+        });
         imageButton3_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,14 +220,14 @@ public class StudyActivity extends AppCompatActivity {
                 transfer();
             }
         });
-//        imageButton3_2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                imageButton3_2.setImageResource(R.drawable.btm_group07_b);
-//                extras.putStringArray("text",type3_2);
-//                transfer();
-//            }
-//        });
+        imageButton3_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageButton3_2.setImageResource(R.drawable.btm_group07_b);
+                extras.putStringArray("text",type3_2);
+                transfer();
+            }
+        });
         imageButton4_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -271,14 +276,14 @@ public class StudyActivity extends AppCompatActivity {
                 transfer();
             }
         });
-//        imageButton7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                imageButton7.setImageResource(R.drawable.btm_group14_b);
-//                extras.putStringArray("text",type7);
-//                transfer();
-//            }
-//        });
+        imageButton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageButton7.setImageResource(R.drawable.btm_group14_b);
+                extras.putStringArray("text",type7);
+                transfer();
+            }
+        });
         imageButton8_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

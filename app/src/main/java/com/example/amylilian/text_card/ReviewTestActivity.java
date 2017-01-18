@@ -20,9 +20,10 @@ public class ReviewTestActivity extends AppCompatActivity {
     private Context context;
     private Intent intent;
 
-    String[] activity_name;
+    String[] test_word;
+    //random number
     int x;
-    String y;
+    //String y;
 
     //add category number
     String[] category;
@@ -43,7 +44,7 @@ public class ReviewTestActivity extends AppCompatActivity {
         imageButton1_1 = (ImageButton) findViewById(R.id.test_imageButton1_1);
         imageButton1_2 = (ImageButton) findViewById(R.id.test_imageButton1_2);
 
-        activity_name = getResources().getStringArray(R.array.activity_name);
+        test_word = getResources().getStringArray(R.array.temp_text);
 
         category = getResources().getStringArray(R.array.category_number);
 
@@ -74,6 +75,9 @@ public class ReviewTestActivity extends AppCompatActivity {
         extra = new Bundle();
         extra.putInt("total",i);
         extra.putInt("count",1);
+        extra.putStringArray("test_word",test_word);
+        extra.putInt("correct",0);
+        extra.putInt("wrong",0);
 
         switch (x){
             case 0:

@@ -2,6 +2,7 @@ package com.example.amylilian.text_card;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,11 +27,31 @@ public class Test_pic extends AppCompatActivity {
     TextView t3;
     TextView t4;
 
-    //now count
+    //now count題數
     TextView c;
+
+    //對錯的題數
+    TextView e1;
+    TextView e2;
 
     //ImageButton next page
     ImageButton next;
+
+    //get bundle values
+    int total;
+    int count;
+    String[] test_word;
+    int correct;
+    int wrong;
+
+    //random number
+    int rand;
+
+    //ans
+    int ans;
+
+    //ans color
+    String[] color;
 
     //add intent
     private Context context;
@@ -51,27 +72,143 @@ public class Test_pic extends AppCompatActivity {
         t3 = (TextView) findViewById(R.id.textView11);
         t4 = (TextView) findViewById(R.id.textView12);
         c = (TextView) findViewById(R.id.textView20);
+        e1 = (TextView) findViewById(R.id.textView24);
+        e2 = (TextView) findViewById(R.id.textView25);
         next = (ImageButton) findViewById(R.id.imageButton2);
 
         //get bundle
         Bundle extras = getIntent().getExtras();
-        final int total = extras.getInt("total");
-        final int count = extras.getInt("count");
+        total = extras.getInt("total");
+        count = extras.getInt("count");
+        correct = extras.getInt("correct");
+        wrong = extras.getInt("wrong");
+        test_word = extras.getStringArray("test_word");
 
         c.setText(count + "");
 
+        //random choose
+        rand = (int) (Math.random() * 4);
+        int[] ia = new int[3];
+        int num = count + 2;
+        for(int i = 0 ; i < 3 ; i++){
+            if (num > total){
+                num = num % total;
+            }
+            ia[i] = num;
+            num++;
+        }
+        switch (rand) {
+            case 0:
+                t1.setText(test_word[count-1]);
+                t2.setText(test_word[ia[0]-1]);
+                t3.setText(test_word[ia[1]-1]);
+                t4.setText(test_word[ia[2]-1]);
+                break;
+            case 1:
+                t1.setText(test_word[ia[0]-1]);
+                t2.setText(test_word[count - 1]);
+                t3.setText(test_word[ia[1]-1]);
+                t4.setText(test_word[ia[2]-1]);
+                break;
+            case 2:
+                t1.setText(test_word[ia[0]-1]);
+                t2.setText(test_word[ia[1]-1]);
+                t3.setText(test_word[count - 1]);
+                t4.setText(test_word[ia[2]-1]);
+                break;
+            case 3:
+                t1.setText(test_word[ia[0]-1]);
+                t2.setText(test_word[ia[1]-1]);
+                t3.setText(test_word[ia[2]-1]);
+                t4.setText(test_word[count - 1]);
+                break;
+        }
+
+        //set color
+        color = new String[4];
+        for (int i = 0 ; i < 4 ; i++){
+            if (i == rand){
+                color[i] = "#6bfe63";
+            }
+            else {
+                color[i] = "#ff1723";
+            }
+        }
+
+        //show right and error number
+        e1.setText("對：" + correct);
+        e2.setText("錯：" + wrong);
+
+        c1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans = 1;
+                if (ans == (rand + 1)){
+                    correct++;
+                }
+                else {
+                    wrong++;
+                }
+                anwser(color);
+            }
+        });
+        c2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans = 2;
+                if (ans == (rand + 1)){
+                    correct++;
+                }
+                else {
+                    wrong++;
+                }
+                anwser(color);
+            }
+        });
+        c3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans = 3;
+                if (ans == (rand + 1)){
+                    correct++;
+                }
+                else {
+                    wrong++;
+                }
+                anwser(color);
+            }
+        });
+        c4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans = 4;
+                if (ans == (rand + 1)){
+                    correct++;
+                }
+                else {
+                    wrong++;
+                }
+                anwser(color);
+            }
+        });
+
         context = this;
+        //click next page
         if (total == count){
             next.setImageResource(R.drawable.btm_end_a);
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     next.setImageResource(R.drawable.btm_end_b);
+                    Bundle extra = new Bundle();
+                    extra.putInt("correct",correct);
                     intent = new Intent(context , Test_End_Activity.class);
+                    intent.putExtras(extra);
                     startActivity(intent);
                 }
             });
         }else{
+
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -81,6 +218,7 @@ public class Test_pic extends AppCompatActivity {
             });
         }
     }
+
     //x=total ; y= new count
     public void trans(int x,int y) {
         Bundle extra;
@@ -90,6 +228,9 @@ public class Test_pic extends AppCompatActivity {
         //package
         extra.putInt("total", x);
         extra.putInt("count", y + 1);
+        extra.putStringArray("test_word",test_word);
+        extra.putInt("correct",correct);
+        extra.putInt("wrong",wrong);
         switch (i) {
             case 0:
                 intent = new Intent(context, Test_pic.class);
@@ -104,5 +245,16 @@ public class Test_pic extends AppCompatActivity {
         }
         intent.putExtras(extra);
         startActivity(intent);
+    }
+    public void anwser(String[] s){
+
+        t1.setTextColor(Color.parseColor(s[0]));
+        t2.setTextColor(Color.parseColor(s[1]));
+        t3.setTextColor(Color.parseColor(s[2]));
+        t4.setTextColor(Color.parseColor(s[3]));
+
+        //show right and error number
+        e1.setText("對：" + correct);
+        e2.setText("錯：" + wrong);
     }
 }

@@ -43,13 +43,15 @@
         android:scaleType="centerCrop" />
 
     <TextView
-        android:text="題數"
+        android:text="R"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
+        android:layout_marginStart="95dp"
         android:layout_marginBottom="95dp"
         android:id="@+id/textView22"
         android:textSize="36sp"
         android:layout_alignBottom="@+id/imageView16"
-        android:layout_alignStart="@+id/imageView16" />
+        android:layout_alignStart="@+id/imageView16"
+        android:textColor="@android:color/black"
+        android:textStyle="normal|bold" />
 </RelativeLayout>

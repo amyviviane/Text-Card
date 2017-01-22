@@ -204,6 +204,7 @@ public class Test_sound extends AppCompatActivity {
                     intent = new Intent(context , Test_End_Activity.class);
                     intent.putExtras(extra);
                     startActivity(intent);
+                    finish();
                 }
             });
         }else{
@@ -244,6 +245,7 @@ public class Test_sound extends AppCompatActivity {
         }
         intent.putExtras(extra);
         startActivity(intent);
+        finish();
     }
     public void anwser(String[] s){
 

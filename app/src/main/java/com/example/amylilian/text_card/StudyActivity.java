@@ -132,7 +132,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_1.setImageResource(R.drawable.btm_group03_b);
-                sta=26;fin=36;
+                sta=27;fin=36;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type2_1",helper));
@@ -154,7 +154,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_3.setImageResource(R.drawable.btm_group05_b);
-                sta=47;fin=57;
+                sta=48;fin=57;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type2_3",helper));
@@ -165,7 +165,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton3_1.setImageResource(R.drawable.btm_group06_b);
-                sta=58;fin=65;
+                sta=59;fin=65;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type3_1",helper));
@@ -187,7 +187,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton4_1.setImageResource(R.drawable.btm_group08_b);
-                sta=75;fin=84;
+                sta=76;fin=84;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type4_1",helper));
@@ -209,7 +209,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton5_1.setImageResource(R.drawable.btm_group10_b);
-                sta=96;fin=105;
+                sta=97;fin=105;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type5_1",helper));
@@ -231,7 +231,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton6_1.setImageResource(R.drawable.btm_group12_b);
-                sta=116;fin=125;
+                sta=117;fin=125;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type6_1",helper));
@@ -253,7 +253,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton7.setImageResource(R.drawable.btm_group14_b);
-                sta=136;fin=149;
+                sta=137;fin=149;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type7",helper));
@@ -264,7 +264,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton8_1.setImageResource(R.drawable.btm_group15_b);
-                sta=150;fin=158;
+                sta=151;fin=158;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type8_1",helper));
@@ -286,7 +286,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton9_1.setImageResource(R.drawable.btm_group17_b);
-                sta=169;fin=180;
+                sta=170;fin=180;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
                 extras.putStringArray("text",gettrl("type9_1",helper));
@@ -343,7 +343,7 @@ public class StudyActivity extends AppCompatActivity {
                 return type1_1;
             case "type1_2":
                 String[] type1_2 = new String[12];
-                System.arraycopy(AllTrl,13,type1_2,0,type1_2.length);
+                System.arraycopy(AllTrl,12,type1_2,0,type1_2.length);
                 return type1_2;
             case "type2_1":
                 String[] type2_1 = new String[11];

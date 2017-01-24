@@ -144,7 +144,6 @@ public class StudyContentActivity extends AppCompatActivity {
         Context con = getApplicationContext();
         int id = con.getResources().getIdentifier("drawable/" + str,null,con.getPackageName());
         img.setImageResource(id);
-        System.out.println(im[count]+ " here " +im[count].toLowerCase());
 
         context = this;
         next_botton.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +155,14 @@ public class StudyContentActivity extends AppCompatActivity {
                 final Bundle extras = new Bundle();
                 extras.putInt("length",group_length);
                 extras.putInt("count",1);
+
+                //傳遞小分類所有資料
                 extras.putStringArray("text",text_array);
+                extras.putStringArray("org",or);
+                extras.putStringArray("ext",ex);
+                extras.putStringArray("begin",be);
+                extras.putStringArray("end",en);
+                extras.putStringArray("img",im);
 
                 intent = new Intent(context , StudyContentMiddleActivity.class);
                 intent.putExtras(extras);

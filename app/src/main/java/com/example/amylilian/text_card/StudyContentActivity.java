@@ -106,8 +106,8 @@ public class StudyContentActivity extends AppCompatActivity {
         cursor = db.query(Table_Name, new String[] {ID,BeginTime,EndTime,ORG,EXT,IMG}, null, null, null, null, null, null);
 
         //宣告要拿取的資料陣列
-        final String be[] = new String[n];
-        final String en[] = new String[n];
+        final double be[] = new double[n];
+        final double en[] = new double[n];
         final String or[] = new String[n];
         final String ex[] = new String[n];
         final String im[] = new String[n];
@@ -120,9 +120,9 @@ public class StudyContentActivity extends AppCompatActivity {
         if (cursor != null){
             while (cursor.moveToNext() && i < n) {
                 //存入陣列
-                String begin = cursor.getString(cursor.getColumnIndex(BeginTime));
+                double begin = cursor.getDouble(cursor.getColumnIndex(BeginTime));
                 be[i] = begin;
-                String end = cursor.getString(cursor.getColumnIndex(EndTime));
+                double end = cursor.getDouble(cursor.getColumnIndex(EndTime));
                 en[i] = end;
                 String o = cursor.getString(cursor.getColumnIndex(ORG));
                 or[i] = o;
@@ -165,8 +165,8 @@ public class StudyContentActivity extends AppCompatActivity {
                 extras.putStringArray("text",text_array);
                 extras.putStringArray("org",or);
                 extras.putStringArray("ext",ex);
-                extras.putStringArray("begin",be);
-                extras.putStringArray("end",en);
+                extras.putDoubleArray("begin",be);
+                extras.putDoubleArray("end",en);
                 extras.putStringArray("img",im);
 
                 intent = new Intent(context , StudyContentMiddleActivity.class);
@@ -178,14 +178,12 @@ public class StudyContentActivity extends AppCompatActivity {
         sound_botton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                starttime = (int)(be[0] * 1000);
+                duration = (int)((en[0] * 1000) - starttime);
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
-                try {
-                    mediaPlayer.prepare();
-                    mediaPlayer.seekTo(starttime);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                mediaPlayer.seekTo(starttime);
+
                 mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener(){
                     public void onSeekComplete(MediaPlayer m) {
                         m.start();

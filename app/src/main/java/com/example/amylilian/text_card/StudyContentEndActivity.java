@@ -3,6 +3,7 @@ package com.example.amylilian.text_card;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -20,6 +21,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
     TextView text2;
     ImageView img1;
     private MediaPlayer mediaPlayer;
+    private int starttime;
+    private int duration;
 
     //add intent
     private Context context;
@@ -47,8 +50,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
         final String[] text_array = extras.getStringArray("text");
         final String[] org =  extras.getStringArray("org");
         final String[] ext =  extras.getStringArray("ext");
-        final String[] begin =  extras.getStringArray("begin");
-        final String[] end =  extras.getStringArray("end");
+        final double[] begin =  extras.getDoubleArray("begin");
+        final double[] end =  extras.getDoubleArray("end");
         final String[] img =  extras.getStringArray("img");
 
         //get total string[] long
@@ -78,8 +81,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 extras.putStringArray("text",text_array);
                 extras.putStringArray("org",org);
                 extras.putStringArray("ext",ext);
-                extras.putStringArray("begin",begin);
-                extras.putStringArray("end",end);
+                extras.putDoubleArray("begin",begin);
+                extras.putDoubleArray("end",end);
                 extras.putStringArray("img",img);
 
                 intent = new Intent(context, StudyContentMiddleActivity.class);
@@ -103,9 +106,33 @@ public class StudyContentEndActivity extends AppCompatActivity {
         sound_botton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                starttime = (int)(begin[count] * 1000);
+                duration = (int)((end[count] * 1000) - starttime);
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
-                mediaPlayer.start();
+                mediaPlayer.seekTo(starttime);
+
+                mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener(){
+                    public void onSeekComplete(MediaPlayer m) {
+                        m.start();
+                    }
+                });
+                CountDownTimer timer = new CountDownTimer(duration, duration) {
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        // Nothing to do
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        if (mediaPlayer.isPlaying()) {
+                            mediaPlayer.stop();
+                            mediaPlayer.release();
+                        }
+                    }
+                };
+                timer.start();
             }
         });
     }

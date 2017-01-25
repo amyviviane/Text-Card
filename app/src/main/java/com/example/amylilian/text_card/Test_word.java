@@ -3,8 +3,10 @@ package com.example.amylilian.text_card;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -98,6 +100,9 @@ public class Test_word extends AppCompatActivity {
         img =  extras.getStringArray("img");
         s = extras.getInt("sta");
         f = extras.getInt("fin");
+
+        //Log.d(Test_word,"=========================================");
+        System.out.print(test_word[count - 1]);
 
         c.setText(count + "");
         text.setText(test_word[count - 1]);

@@ -47,6 +47,13 @@ public class Test_word extends AppCompatActivity {
     String[] test_word;
     int correct;
     int wrong;
+    String[] org;
+    String[] ext;
+    double[] begin;
+    double[] end;
+    String[] img;
+    int s;
+    int f;
 
     //random number
     int rand;
@@ -84,6 +91,13 @@ public class Test_word extends AppCompatActivity {
         correct = extras.getInt("correct");
         wrong = extras.getInt("wrong");
         test_word = extras.getStringArray("test_word");
+        org =  extras.getStringArray("org");
+        ext =  extras.getStringArray("ext");
+        begin =  extras.getDoubleArray("begin");
+        end =  extras.getDoubleArray("end");
+        img =  extras.getStringArray("img");
+        s = extras.getInt("sta");
+        f = extras.getInt("fin");
 
         c.setText(count + "");
         text.setText(test_word[count - 1]);
@@ -235,6 +249,11 @@ public class Test_word extends AppCompatActivity {
         extra.putStringArray("test_word",test_word);
         extra.putInt("correct",correct);
         extra.putInt("wrong",wrong);
+        extra.putStringArray("org",org);
+        extra.putStringArray("ext",ext);
+        extra.putDoubleArray("begin",begin);
+        extra.putDoubleArray("end",end);
+        extra.putStringArray("img",img);
         switch (i){
             case 0:
                 intent = new Intent(context , Test_pic.class);

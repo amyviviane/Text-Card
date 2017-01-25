@@ -2,7 +2,11 @@ package com.example.amylilian.text_card;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +14,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+import static com.example.amylilian.text_card.DBColumns.BeginTime;
+import static com.example.amylilian.text_card.DBColumns.EXT;
+import static com.example.amylilian.text_card.DBColumns.EndTime;
+import static com.example.amylilian.text_card.DBColumns.ID;
+import static com.example.amylilian.text_card.DBColumns.IMG;
+import static com.example.amylilian.text_card.DBColumns.ORG;
+import static com.example.amylilian.text_card.DBColumns.Table_Name;
+
 public class Test_sound extends AppCompatActivity {
 
     //題目聲音按鈕
-    ImageView sound;
+    ImageButton sound;
 
     //選項imageButton
     ImageButton c1;
@@ -43,6 +59,13 @@ public class Test_sound extends AppCompatActivity {
     String[] test_word;
     int correct;
     int wrong;
+    String[] org;
+    String[] ext;
+    double[] begin;
+    double[] end;
+    String[] img;
+    int s;
+    int f;
 
     //random number
     int rand;
@@ -53,6 +76,11 @@ public class Test_sound extends AppCompatActivity {
     //ans color
     String[] color;
 
+    //media
+    MediaPlayer mediaPlayer;
+    int starttime;
+    int duration;
+
     //add intent
     private Context context;
     private Intent intent;
@@ -62,7 +90,7 @@ public class Test_sound extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_sound);
 
-        sound = (ImageView) findViewById(R.id.imageButton3);
+        sound = (ImageButton) findViewById(R.id.imageButton3);
         c1 = (ImageButton) findViewById(R.id.imageButton4);
         c2 = (ImageButton) findViewById(R.id.imageButton5);
         c3 = (ImageButton) findViewById(R.id.imageButton6);
@@ -78,11 +106,18 @@ public class Test_sound extends AppCompatActivity {
 
         //get bundle
         Bundle extras = getIntent().getExtras();
+        s = extras.getInt("sta");
+        f = extras.getInt("fin");
         total = extras.getInt("total");
         count = extras.getInt("count");
         correct = extras.getInt("correct");
         wrong = extras.getInt("wrong");
         test_word = extras.getStringArray("test_word");
+        org =  extras.getStringArray("org");
+        ext =  extras.getStringArray("ext");
+        begin =  extras.getDoubleArray("begin");
+        end =  extras.getDoubleArray("end");
+        img =  extras.getStringArray("img");
 
         c.setText(count + "");
 
@@ -90,11 +125,11 @@ public class Test_sound extends AppCompatActivity {
         rand = (int) (Math.random() * 4);
         int[] ia = new int[3];
         int num = count + 2;
-        for(int i = 0 ; i < 3 ; i++){
+        for(int y = 0 ; y < 3 ; y++){
             if (num > total){
                 num = num % total;
             }
-            ia[i] = num;
+            ia[y] = num;
             num++;
         }
         switch (rand) {
@@ -126,18 +161,52 @@ public class Test_sound extends AppCompatActivity {
 
         //set color
         color = new String[4];
-        for (int i = 0 ; i < 4 ; i++){
-            if (i == rand){
-                color[i] = "#6bfe63";
+        for (int y = 0 ; y < 4 ; y++){
+            if (y == rand){
+                color[y] = "#6bfe63";
             }
             else {
-                color[i] = "#ff1723";
+                color[y] = "#ff1723";
             }
         }
 
         //show right and error number
         e1.setText("對：" + correct);
         e2.setText("錯：" + wrong);
+
+        //sound buttom
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                starttime = (int)(begin[count - 1] * 1000);
+                duration = (int)((end[count - 1] * 1000) - starttime);
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
+                mediaPlayer.seekTo(starttime);
+
+                mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener(){
+                    public void onSeekComplete(MediaPlayer m) {
+                        m.start();
+                    }
+                });
+                CountDownTimer timer = new CountDownTimer(duration, duration) {
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        // Nothing to do
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        if (mediaPlayer.isPlaying()) {
+                            mediaPlayer.stop();
+                            mediaPlayer.release();
+                        }
+                    }
+                };
+                timer.start();
+            }
+        });
 
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,6 +299,11 @@ public class Test_sound extends AppCompatActivity {
         extra.putStringArray("test_word",test_word);
         extra.putInt("correct",correct);
         extra.putInt("wrong",wrong);
+        extra.putStringArray("org",org);
+        extra.putStringArray("ext",ext);
+        extra.putDoubleArray("begin",begin);
+        extra.putDoubleArray("end",end);
+        extra.putStringArray("img",img);
         switch (i){
             case 0:
                 intent = new Intent(context , Test_pic.class);

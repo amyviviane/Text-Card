@@ -2,6 +2,8 @@ package com.example.amylilian.text_card;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,18 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+import static com.example.amylilian.text_card.DBColumns.BeginTime;
+import static com.example.amylilian.text_card.DBColumns.EXT;
+import static com.example.amylilian.text_card.DBColumns.EndTime;
+import static com.example.amylilian.text_card.DBColumns.ID;
+import static com.example.amylilian.text_card.DBColumns.IMG;
+import static com.example.amylilian.text_card.DBColumns.ORG;
+import static com.example.amylilian.text_card.DBColumns.Table_Name;
 
 public class Test_pic extends AppCompatActivity {
 
@@ -43,6 +57,13 @@ public class Test_pic extends AppCompatActivity {
     String[] test_word;
     int correct;
     int wrong;
+    String[] org;
+    String[] ext;
+    double[] begin;
+    double[] end;
+    String[] img;
+    int s;
+    int f;
 
     //random number
     int rand;
@@ -83,6 +104,13 @@ public class Test_pic extends AppCompatActivity {
         correct = extras.getInt("correct");
         wrong = extras.getInt("wrong");
         test_word = extras.getStringArray("test_word");
+        org =  extras.getStringArray("org");
+        ext =  extras.getStringArray("ext");
+        begin =  extras.getDoubleArray("begin");
+        end =  extras.getDoubleArray("end");
+        img =  extras.getStringArray("img");
+        s = extras.getInt("sta");
+        f = extras.getInt("fin");
 
         c.setText(count + "");
 
@@ -90,11 +118,11 @@ public class Test_pic extends AppCompatActivity {
         rand = (int) (Math.random() * 4);
         int[] ia = new int[3];
         int num = count + 2;
-        for(int i = 0 ; i < 3 ; i++){
+        for(int y = 0 ; y < 3 ; y++){
             if (num > total){
                 num = num % total;
             }
-            ia[i] = num;
+            ia[y] = num;
             num++;
         }
         switch (rand) {
@@ -126,12 +154,12 @@ public class Test_pic extends AppCompatActivity {
 
         //set color
         color = new String[4];
-        for (int i = 0 ; i < 4 ; i++){
-            if (i == rand){
-                color[i] = "#6bfe63";
+        for (int y = 0 ; y < 4 ; y++){
+            if (y == rand){
+                color[y] = "#6bfe63";
             }
             else {
-                color[i] = "#ff1723";
+                color[y] = "#ff1723";
             }
         }
 
@@ -232,6 +260,11 @@ public class Test_pic extends AppCompatActivity {
         extra.putStringArray("test_word",test_word);
         extra.putInt("correct",correct);
         extra.putInt("wrong",wrong);
+        extra.putStringArray("org",org);
+        extra.putStringArray("ext",ext);
+        extra.putDoubleArray("begin",begin);
+        extra.putDoubleArray("end",end);
+        extra.putStringArray("img",img);
         switch (i) {
             case 0:
                 intent = new Intent(context, Test_pic.class);

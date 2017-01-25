@@ -329,7 +329,9 @@ public class ReviewTestActivity extends AppCompatActivity {
     }
 
     public void transfer() {
-        x = (int) (Math.random() * 3);
+        //x = (int) (Math.random() * 3);
+
+        x = 2;
 
         extras = new Bundle();
         extras.putInt("total",sta - fin + 1);

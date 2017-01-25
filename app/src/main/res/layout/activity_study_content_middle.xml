@@ -35,13 +35,13 @@
 
     <ImageView
         android:layout_width="160dp"
-        android:layout_height="48dp"
         app:srcCompat="@drawable/category"
         android:layout_below="@+id/imageView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:id="@+id/imageView4"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:layout_height="90dp" />
 
     <ImageButton
         android:layout_width="48dp"
@@ -82,5 +82,16 @@
         android:textSize="24sp"
         android:layout_above="@+id/imageView4"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4"
+        android:id="@+id/textView29"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView4"
+        android:textSize="18sp" />
 
 </RelativeLayout>

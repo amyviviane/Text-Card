@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class StudyContentEndActivity extends AppCompatActivity {
@@ -16,6 +17,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
     ImageButton previous_botton;
     ImageButton end_botton;
     TextView text1;
+    TextView text2;
+    ImageView img1;
     private MediaPlayer mediaPlayer;
 
     //add intent
@@ -31,22 +34,35 @@ public class StudyContentEndActivity extends AppCompatActivity {
         previous_botton = (ImageButton) findViewById(R.id.previouspageButton_studyend);
         end_botton = (ImageButton) findViewById(R.id.endButton_studyend);
         text1 = (TextView) findViewById(R.id.text1View_studyend);
+        text2 = (TextView) findViewById(R.id.textView30);
+        img1 = (ImageView) findViewById(R.id.imageView2);
 
         //get temply text string
         // String[] text_array = getResources().getStringArray(R.array.temp_text);
 
-
-
         //get bundle(新增2016.11.30)
         Bundle extras = getIntent().getExtras();
         final int count = extras.getInt("count");
+        //取出小分類所有資料
         final String[] text_array = extras.getStringArray("text");
+        final String[] org =  extras.getStringArray("org");
+        final String[] ext =  extras.getStringArray("ext");
+        final String[] begin =  extras.getStringArray("begin");
+        final String[] end =  extras.getStringArray("end");
+        final String[] img =  extras.getStringArray("img");
 
         //get total string[] long
         final int group_length = text_array.length ; //修改 (沒有-1）
 
-        //print word
+        //set trl
         text1.setText(text_array[count]);
+        //set org+ext
+        text2.setText(org[count]+ "\n" +ext[count]);
+        //set img
+        String str = img[count].toLowerCase(); //將取出的圖檔名轉小寫
+        Context con = getApplicationContext();
+        int id = con.getResources().getIdentifier("drawable/" + str,null,con.getPackageName());
+        img1.setImageResource(id);
 
         context = this;
         previous_botton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +74,13 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 final Bundle extras = new Bundle();
                 extras.putInt("length",group_length);
                 extras.putInt("count",count - 1);
+                //傳遞小分類所有資料
                 extras.putStringArray("text",text_array);
+                extras.putStringArray("org",org);
+                extras.putStringArray("ext",ext);
+                extras.putStringArray("begin",begin);
+                extras.putStringArray("end",end);
+                extras.putStringArray("img",img);
 
                 intent = new Intent(context, StudyContentMiddleActivity.class);
                 intent.putExtras(extras);

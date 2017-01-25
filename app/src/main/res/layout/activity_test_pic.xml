@@ -125,4 +125,24 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp" />
+
+    <TextView
+        android:text="T"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/textView24"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:text="R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView24"
+        android:layout_alignEnd="@+id/textView24"
+        android:id="@+id/textView25"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>

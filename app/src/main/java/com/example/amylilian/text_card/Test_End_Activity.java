@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 public class Test_End_Activity extends AppCompatActivity {
 
+    //correct number
+    int correct;
+
     //add intent
     private Context context;
     private Intent intent;
@@ -27,6 +30,11 @@ public class Test_End_Activity extends AppCompatActivity {
         rightcount = (TextView) findViewById(R.id.textView22);
         testgo = (ImageButton) findViewById(R.id.imageButton9);
         gotostudy = (ImageButton) findViewById(R.id.imageButton10);
+
+        //get bundle
+        Bundle extras = getIntent().getExtras();
+        correct = extras.getInt("correct");
+        rightcount.setText(correct + "");
 
         context = this;
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.IOException;
 
 
 public class StudyContentActivity extends AppCompatActivity {
@@ -23,6 +25,8 @@ public class StudyContentActivity extends AppCompatActivity {
     private Context context;
     private Intent intent;
     private MediaPlayer mediaPlayer;
+    private int starttime;
+    private int duration;
 
     private static final String TAG = "StudyContentActivity";
 
@@ -109,7 +113,33 @@ public class StudyContentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
-                mediaPlayer.start();
+                try {
+                    mediaPlayer.prepare();
+                    mediaPlayer.seekTo(starttime);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener(){
+                    public void onSeekComplete(MediaPlayer m) {
+                        m.start();
+                    }
+                });
+                CountDownTimer timer = new CountDownTimer(duration, duration) {
+
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        // Nothing to do
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        if (mediaPlayer.isPlaying()) {
+                            mediaPlayer.stop();
+                            mediaPlayer.release();
+                        }
+                    }
+                };
+                timer.start();
             }
         });
     }

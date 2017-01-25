@@ -15,6 +15,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import static com.example.amylilian.text_card.DBColumns.BeginTime;
+import static com.example.amylilian.text_card.DBColumns.EndTime;
 import static com.example.amylilian.text_card.DBColumns.TRL;
 import static com.example.amylilian.text_card.DBColumns.Table_Name;
 
@@ -38,8 +40,12 @@ public class StudyActivity extends AppCompatActivity {
     //put value into Bundle
     final Bundle extras = new Bundle();
 
-    //ArrayList
+    //ArrayList(TRL)
     private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<Integer> secarray = new ArrayList<>();
+    private ArrayList<Integer> durationarray = new ArrayList<>();
+    private int startword;
+    private int endword;
 
 
     private SQLiteDatabase copydb(String dbfile){
@@ -106,7 +112,8 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton1_1.setImageResource(R.drawable.btm_group01_b);
-                extras.putStringArray("text",gettrl("type1_1",helper));
+                extras.putStringArray("text",gettrl("type1_1",helper,1,12));
+                //!!extras.putIntArray("starttime",secarray);
                 intent = new Intent(context , StudyContentActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
@@ -117,7 +124,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton1_2.setImageResource(R.drawable.btm_group02_b);
-                extras.putStringArray("text",gettrl("type1_2",helper));
+                extras.putStringArray("text",gettrl("type1_2",helper,13,12));
                 transfer();
             }
         });
@@ -125,7 +132,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_1.setImageResource(R.drawable.btm_group03_b);
-                extras.putStringArray("text",gettrl("type2_1",helper));
+                extras.putStringArray("text",gettrl("type2_1",helper,26,11));
                 transfer();
             }
         });
@@ -133,7 +140,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_2.setImageResource(R.drawable.btm_group04_b);
-                extras.putStringArray("text",gettrl("type2_2",helper));
+                extras.putStringArray("text",gettrl("type2_2",helper,37,10));
                 transfer();
             }
         });
@@ -141,7 +148,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton2_3.setImageResource(R.drawable.btm_group05_b);
-                extras.putStringArray("text",gettrl("type2_3",helper));
+                extras.putStringArray("text",gettrl("type2_3",helper,47,10));
                 transfer();
             }
         });
@@ -149,7 +156,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton3_1.setImageResource(R.drawable.btm_group06_b);
-                extras.putStringArray("text",gettrl("type3_1",helper));
+                extras.putStringArray("text",gettrl("type3_1",helper,58,8));
                 transfer();
             }
         });
@@ -157,7 +164,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton3_2.setImageResource(R.drawable.btm_group07_b);
-                extras.putStringArray("text",gettrl("type3_2",helper));
+                extras.putStringArray("text",gettrl("type3_2",helper,66,8));
                 transfer();
             }
         });
@@ -165,7 +172,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton4_1.setImageResource(R.drawable.btm_group08_b);
-                extras.putStringArray("text",gettrl("type4_1",helper));
+                extras.putStringArray("text",gettrl("type4_1",helper,75,10));
                 transfer();
             }
         });
@@ -173,7 +180,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton4_2.setImageResource(R.drawable.btm_group09_b);
-                extras.putStringArray("text",gettrl("type4_2",helper));
+                extras.putStringArray("text",gettrl("type4_2",helper,85,10));
                 transfer();
             }
         });
@@ -181,7 +188,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton5_1.setImageResource(R.drawable.btm_group10_b);
-                extras.putStringArray("text",gettrl("type5_1",helper));
+                extras.putStringArray("text",gettrl("type5_1",helper,96,10));
                 transfer();
             }
         });
@@ -189,7 +196,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton5_2.setImageResource(R.drawable.btm_group11_b);
-                extras.putStringArray("text",gettrl("type5_2",helper));
+                extras.putStringArray("text",gettrl("type5_2",helper,106,9));
                 transfer();
             }
         });
@@ -197,7 +204,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton6_1.setImageResource(R.drawable.btm_group12_b);
-                extras.putStringArray("text",gettrl("type6_1",helper));
+                extras.putStringArray("text",gettrl("type6_1",helper,116,10));
                 transfer();
             }
         });
@@ -205,7 +212,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton6_2.setImageResource(R.drawable.btm_group13_b);
-                extras.putStringArray("text",gettrl("type6_2",helper));
+                extras.putStringArray("text",gettrl("type6_2",helper,126,9));
                 transfer();
             }
         });
@@ -213,7 +220,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton7.setImageResource(R.drawable.btm_group14_b);
-                extras.putStringArray("text",gettrl("type7",helper));
+                extras.putStringArray("text",gettrl("type7",helper,136,13));
                 transfer();
             }
         });
@@ -221,7 +228,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton8_1.setImageResource(R.drawable.btm_group15_b);
-                extras.putStringArray("text",gettrl("type8_1",helper));
+                extras.putStringArray("text",gettrl("type8_1",helper,150,9));
                 transfer();
             }
         });
@@ -229,7 +236,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton8_2.setImageResource(R.drawable.btm_group16_b);
-                extras.putStringArray("text",gettrl("type8_2",helper));
+                extras.putStringArray("text",gettrl("type8_2",helper,159,9));
                 transfer();
             }
         });
@@ -237,7 +244,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton9_1.setImageResource(R.drawable.btm_group17_b);
-                extras.putStringArray("text",gettrl("type9_1",helper));
+                extras.putStringArray("text",gettrl("type9_1",helper,169,11));
                 transfer();
             }
         });
@@ -245,7 +252,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageButton9_2.setImageResource(R.drawable.btm_group18_b);
-                extras.putStringArray("text",gettrl("type9_2",helper));
+                extras.putStringArray("text",gettrl("type9_2",helper,180,11));
                 transfer();
             }
         });
@@ -257,18 +264,29 @@ public class StudyActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public String[] gettrl(String type,DBHelper helper){
+    public String[] gettrl(String type,DBHelper helper,int start,int duration){
 
         //Cursor
         Cursor cursor = null;
 
+        startword = start;
+        endword = startword + duration;
+
         SQLiteDatabase db = helper.getWritableDatabase();
-        cursor = db.query(Table_Name, new String[] {TRL}, null, null, null, null, null, null);
+        cursor = db.query(Table_Name, new String[] {TRL,BeginTime,EndTime}, null, null, null, null, null, null);
 
         if (cursor != null){
             while (cursor.moveToNext()) {
                 String trl = cursor.getString(cursor.getColumnIndex(TRL));
                 list.add(trl);
+
+                //get and add begin time
+                if (cursor.getCount() >= startword && cursor.getCount() < endword){
+                    int begintime = cursor.getInt(cursor.getColumnIndex(BeginTime) * 1000);
+                    int endtime = cursor.getInt(cursor.getColumnIndex(EndTime) * 1000);
+                    secarray.add(begintime);
+                    durationarray.add(begintime - endtime);
+                }
             }
         }
 

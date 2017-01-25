@@ -66,6 +66,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
         Context con = getApplicationContext();
         int id = con.getResources().getIdentifier("drawable/" + str,null,con.getPackageName());
         img1.setImageResource(id);
+        System.out.println("wwwww +" +str);
 
         context = this;
         previous_botton.setOnClickListener(new View.OnClickListener() {

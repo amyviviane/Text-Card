@@ -88,8 +88,9 @@ public class StudyContentActivity extends AppCompatActivity {
         //get bundle
         Bundle extras = getIntent().getExtras();
         final String[] text_array = extras.getStringArray("text");
-        int s = extras.getInt("sta");
-        int f = extras.getInt("fin");
+        final int s = extras.getInt("sta");
+        final int f = extras.getInt("fin");
+
         //分類單字總數
         int n = f-s+1;
         int count = 0;
@@ -158,8 +159,10 @@ public class StudyContentActivity extends AppCompatActivity {
 
                 //put value into Bundle
                 final Bundle extras = new Bundle();
-                extras.putInt("length",group_length);
                 extras.putInt("count",1);
+
+                extras.putInt("sta",s);
+                extras.putInt("fin",f);
 
                 //傳遞小分類所有資料
                 extras.putStringArray("text",text_array);
@@ -173,6 +176,7 @@ public class StudyContentActivity extends AppCompatActivity {
                 intent.putExtras(extras);
                 startActivity(intent);
                 finish();
+
             }
         });
         sound_botton.setOnClickListener(new View.OnClickListener() {

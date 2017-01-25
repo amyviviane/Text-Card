@@ -45,8 +45,10 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
 
         //get bundle
         Bundle extras = getIntent().getExtras();
-        int length = extras.getInt("length");
         final int count = extras.getInt("count");
+        final int s = extras.getInt("sta");
+        final int f = extras.getInt("fin");
+
         //取出小分類所有資料
         final String[] text_array = extras.getStringArray("text");
         final String[] org =  extras.getStringArray("org");
@@ -75,8 +77,17 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                 previous_botton.setImageResource(R.drawable.btm_left_b);
 
                 if ((count - 1) == 0){
+                    //put value into Bundle
+                    final Bundle extras = new Bundle();
+                    extras.putStringArray("text",text_array);
+                    extras.putInt("sta",s);
+                    extras.putInt("fin",f);
+
                     intent = new Intent(context, StudyContentActivity.class);
+                    intent.putExtras(extras);
+
                     startActivity(intent);
+                    finish();
                 }else {
                     //put value into Bundle
                     final Bundle extras = new Bundle();
@@ -92,7 +103,9 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
 
                     intent = new Intent(context, StudyContentMiddleActivity.class);
                     intent.putExtras(extras);
+
                     startActivity(intent);
+                    finish();
                 }
             }
         });

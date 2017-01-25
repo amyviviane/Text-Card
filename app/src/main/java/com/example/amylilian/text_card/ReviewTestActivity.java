@@ -64,29 +64,29 @@ public class ReviewTestActivity extends AppCompatActivity {
 
     //put value into Bundle
     Bundle extras = new Bundle();
-
-    private SQLiteDatabase copydb(String dbfile){
-        try{
-            //判斷資料庫檔案是否存在
-            if(!(new File(dbfile).exists())){
-                //String sfile = DBHelper.DB_LOCATION + DBHelper.DB_NAME;
-                InputStream is = context.getAssets().open(DBHelper.DB_NAME);
-                FileOutputStream fos = new FileOutputStream(dbfile);
-                byte[] buffer = new byte[50000];
-                int count = 0;
-                while ((count = is.read(buffer)) > 0){
-                    fos.write(buffer,0,count);
-                }
-                fos.close();
-                is.close();
-            }
-            SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbfile,null);
-            return db;
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
+//
+//    private SQLiteDatabase copydb(String dbfile){
+//        try{
+//            //判斷資料庫檔案是否存在
+//            if(!(new File(dbfile).exists())){
+//                //String sfile = DBHelper.DB_LOCATION + DBHelper.DB_NAME;
+//                InputStream is = context.getAssets().open(DBHelper.DB_NAME);
+//                FileOutputStream fos = new FileOutputStream(dbfile);
+//                byte[] buffer = new byte[50000];
+//                int count = 0;
+//                while ((count = is.read(buffer)) > 0){
+//                    fos.write(buffer,0,count);
+//                }
+//                fos.close();
+//                is.close();
+//            }
+//            SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbfile,null);
+//            return db;
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,7 +135,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=1;fin=12;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -146,7 +146,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=13;fin=25;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -157,7 +157,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=27;fin=36;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -168,7 +168,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=37;fin=46;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -179,7 +179,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=48;fin=57;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -190,7 +190,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=59;fin=65;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -201,7 +201,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=66;fin=74;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -212,7 +212,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=76;fin=84;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -223,7 +223,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=85;fin=95;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -234,7 +234,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=97;fin=105;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -245,7 +245,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=106;fin=115;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -256,7 +256,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=117;fin=125;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -267,7 +267,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=126;fin=135;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -278,7 +278,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=137;fin=149;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -289,7 +289,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=151;fin=158;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -300,7 +300,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=159;fin=168;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -311,7 +311,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=170;fin=180;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -322,7 +322,7 @@ public class ReviewTestActivity extends AppCompatActivity {
                 sta=181;fin=191;
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-                extras.putStringArray("test_word",gettrl(helper,sta,fin));
+//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -336,11 +336,11 @@ public class ReviewTestActivity extends AppCompatActivity {
         extras.putInt("count",1);
         extras.putInt("correct",0);
         extras.putInt("wrong",0);
-        extras.putStringArray("org",org);
-        extras.putStringArray("ext",ext);
-        extras.putDoubleArray("begin",begin);
-        extras.putDoubleArray("end",end);
-        extras.putStringArray("img",img);
+//        extras.putStringArray("org",org);
+//        extras.putStringArray("ext",ext);
+//        extras.putDoubleArray("begin",begin);
+//        extras.putDoubleArray("end",end);
+//        extras.putStringArray("img",img);
 
         switch (x){
             case 0:
@@ -362,48 +362,48 @@ public class ReviewTestActivity extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
-
-    public String[] gettrl(DBHelper helper,int s,int f){
-
-        //Cursor
-        Cursor cursor = null;
-
-        //分類單字總數
-        int n = f-s+1;
-
-        SQLiteDatabase db = helper.getWritableDatabase();
-        cursor = db.query(Table_Name, new String[] {ID,BeginTime,EndTime,ORG,EXT,IMG,TRL}, null, null, null, null, null, null);
-        //宣告要拿取的資料陣列
-        begin = new double[n];
-        end = new double[n];
-        org = new String[n];
-        ext = new String[n];
-        img = new String[n];
-        list_trl = new String[n];
-
-        //計算個數 要拿n個單字
-        int i = 0;
-        //先把cursor移至分類的第一個單字
-        cursor.move(s);
-        //指針,存取
-        if (cursor != null){
-            while (cursor.moveToNext() && i < n) {
-                //存入陣列
-                begin[i] = cursor.getDouble(cursor.getColumnIndex(BeginTime));
-                end[i] = cursor.getDouble(cursor.getColumnIndex(EndTime));
-                org[i] = cursor.getString(cursor.getColumnIndex(ORG));
-                ext[i] = cursor.getString(cursor.getColumnIndex(EXT));
-                img[i] = cursor.getString(cursor.getColumnIndex(IMG));
-                list_trl[i] = cursor.getString(cursor.getColumnIndex(TRL));
-                i++;
-            }
-        }
-        //關閉
-        if (cursor != null){
-            cursor.close();
-            db.close();
-            helper.close();
-        }
-        return list_trl;
-    }
+//
+//    public String[] gettrl(DBHelper helper,int s,int f){
+//
+//        //Cursor
+//        Cursor cursor = null;
+//
+//        //分類單字總數
+//        int n = f-s+1;
+//
+//        SQLiteDatabase db = helper.getWritableDatabase();
+//        cursor = db.query(Table_Name, new String[] {ID,BeginTime,EndTime,ORG,EXT,IMG,TRL}, null, null, null, null, null, null);
+//        //宣告要拿取的資料陣列
+//        begin = new double[n];
+//        end = new double[n];
+//        org = new String[n];
+//        ext = new String[n];
+//        img = new String[n];
+//        list_trl = new String[n];
+//
+//        //計算個數 要拿n個單字
+//        int i = 0;
+//        //先把cursor移至分類的第一個單字
+//        cursor.move(s);
+//        //指針,存取
+//        if (cursor != null){
+//            while (cursor.moveToNext() && i < n) {
+//                //存入陣列
+//                begin[i] = cursor.getDouble(cursor.getColumnIndex(BeginTime));
+//                end[i] = cursor.getDouble(cursor.getColumnIndex(EndTime));
+//                org[i] = cursor.getString(cursor.getColumnIndex(ORG));
+//                ext[i] = cursor.getString(cursor.getColumnIndex(EXT));
+//                img[i] = cursor.getString(cursor.getColumnIndex(IMG));
+//                list_trl[i] = cursor.getString(cursor.getColumnIndex(TRL));
+//                i++;
+//            }
+//        }
+//        //關閉
+//        if (cursor != null){
+//            cursor.close();
+//            db.close();
+//            helper.close();
+//        }
+//        return list_trl;
+//    }
 }

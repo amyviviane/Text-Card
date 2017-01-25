@@ -24,6 +24,7 @@ import static com.example.amylilian.text_card.DBColumns.EndTime;
 import static com.example.amylilian.text_card.DBColumns.ID;
 import static com.example.amylilian.text_card.DBColumns.IMG;
 import static com.example.amylilian.text_card.DBColumns.ORG;
+import static com.example.amylilian.text_card.DBColumns.TRL;
 import static com.example.amylilian.text_card.DBColumns.Table_Name;
 
 public class Test_sound extends AppCompatActivity {
@@ -85,10 +86,36 @@ public class Test_sound extends AppCompatActivity {
     private Context context;
     private Intent intent;
 
+    private SQLiteDatabase copydb(String dbfile){
+        try{
+            //判斷資料庫檔案是否存在
+            if(!(new File(dbfile).exists())){
+                //String sfile = DBHelper.DB_LOCATION + DBHelper.DB_NAME;
+                InputStream is = context.getAssets().open(DBHelper.DB_NAME);
+                FileOutputStream fos = new FileOutputStream(dbfile);
+                byte[] buffer = new byte[50000];
+                int count = 0;
+                while ((count = is.read(buffer)) > 0){
+                    fos.write(buffer,0,count);
+                }
+                fos.close();
+                is.close();
+            }
+            SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbfile,null);
+            return db;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_sound);
+
+        //呼叫建構子(寫進DBHelper,context換成this)
+        final DBHelper helper = new DBHelper(this);
 
         sound = (ImageButton) findViewById(R.id.imageButton3);
         c1 = (ImageButton) findViewById(R.id.imageButton4);
@@ -106,19 +133,66 @@ public class Test_sound extends AppCompatActivity {
 
         //get bundle
         Bundle extras = getIntent().getExtras();
-        s = extras.getInt("sta");
-        f = extras.getInt("fin");
         total = extras.getInt("total");
         count = extras.getInt("count");
         correct = extras.getInt("correct");
         wrong = extras.getInt("wrong");
-        test_word = extras.getStringArray("test_word");
-        org =  extras.getStringArray("org");
-        ext =  extras.getStringArray("ext");
-        begin =  extras.getDoubleArray("begin");
-        end =  extras.getDoubleArray("end");
-        img =  extras.getStringArray("img");
+        s = extras.getInt("sta");
+        f = extras.getInt("fin");
 
+        //假設為第一題 則必須先拿取資料庫資料
+        if(count == 1){
+
+            //Cursor
+            Cursor cursor = null;
+
+            //分類單字總數
+            int n = f-s+1;
+
+            SQLiteDatabase db = helper.getWritableDatabase();
+            cursor = db.query(Table_Name, new String[] {ID,BeginTime,EndTime,ORG,EXT,IMG,TRL}, null, null, null, null, null, null);
+            //宣告要拿取的資料陣列
+            begin = new double[n];
+            end = new double[n];
+            org = new String[n];
+            ext = new String[n];
+            img = new String[n];
+            test_word = new String[n];
+
+            //計算個數 要拿n個單字
+            int i = 0;
+            //先把cursor移至分類的第一個單字
+            cursor.move(s);
+            //指針,存取
+            if (cursor != null){
+                while (cursor.moveToNext() && i < n) {
+                    //存入陣列
+                    begin[i] = cursor.getDouble(cursor.getColumnIndex(BeginTime));
+                    end[i] = cursor.getDouble(cursor.getColumnIndex(EndTime));
+                    org[i] = cursor.getString(cursor.getColumnIndex(ORG));
+                    ext[i] = cursor.getString(cursor.getColumnIndex(EXT));
+                    img[i] = cursor.getString(cursor.getColumnIndex(IMG));
+                    test_word[i] = cursor.getString(cursor.getColumnIndex(TRL));
+                    i++;
+                }
+            }
+            //關閉
+            if (cursor != null){
+                cursor.close();
+                db.close();
+                helper.close();
+            }
+        }
+
+        //如果不是第一題 則利用get bundle拿資料庫資料
+        else {
+            test_word = extras.getStringArray("test_word");
+            org = extras.getStringArray("org");
+            ext = extras.getStringArray("ext");
+            begin = extras.getDoubleArray("begin");
+            end = extras.getDoubleArray("end");
+            img = extras.getStringArray("img");
+        }
         c.setText(count + "");
 
         //random choose

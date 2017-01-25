@@ -137,7 +137,6 @@ public class Test_word extends AppCompatActivity {
         s = extras.getInt("sta");
         f = extras.getInt("fin");
 
-<<<<<<< HEAD
         //假設為第一題 則必須先拿取資料庫資料
         if(count == 1){
 
@@ -191,11 +190,7 @@ public class Test_word extends AppCompatActivity {
             end = extras.getDoubleArray("end");
             img = extras.getStringArray("img");
         }
-=======
-        //Log.d(Test_word,"=========================================");
-        System.out.print(test_word[count - 1]);
 
->>>>>>> 01c6492b55273802dbe4af4ea1a42421d267aac7
         c.setText(count + "");
         text.setText(test_word[count - 1]);
 

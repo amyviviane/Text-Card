@@ -193,25 +193,28 @@ public class Test_word extends AppCompatActivity {
 
         c.setText(count + "");
         text.setText(test_word[count - 1]);
+        System.out.print(test_word.length);
+        System.out.print(test_word[count - 1] + "");
 
 
         //random choose
-        rand = (int) (Math.random() * 4);
+        rand = 0;
+        //rand = (int) (Math.random() * 4);
         int[] ia = new int[3];
         int num = count + 2;
-        for(int i = 0 ; i < 3 ; i++){
+        for(int y = 0 ; y < 3 ; y++){
             if (num > total){
                 num = num % total;
             }
-            ia[i] = num;
+            ia[y] = num - 1;
             num++;
         }
         switch (rand) {
             case 0:
                 t1.setText(test_word[count-1]);
-                t2.setText(test_word[ia[0]-1]);
-                t3.setText(test_word[ia[1]-1]);
-                t4.setText(test_word[ia[2]-1]);
+                t2.setText(test_word[ia[0]]);
+                t3.setText(test_word[ia[1]]);
+                t4.setText(test_word[ia[2]]);
                 break;
             case 1:
                 t1.setText(test_word[ia[0]-1]);

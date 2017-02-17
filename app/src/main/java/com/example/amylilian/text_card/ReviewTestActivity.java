@@ -130,199 +130,199 @@ public class ReviewTestActivity extends AppCompatActivity {
         imageButton1_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton1_1.setImageResource(R.drawable.btm_group01_b);
+                imageButton1_1.setImageResource(R.drawable.btm2_group01_b);
                 //傳入開頭跟結尾ID
-                sta=1;fin=12;
+                sta=2;fin=13;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton1_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton1_2.setImageResource(R.drawable.btm_group02_b);
-                sta=13;fin=25;
+                imageButton1_2.setImageResource(R.drawable.btm2_group02_b);
+                sta=14;fin=25;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton2_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton2_1.setImageResource(R.drawable.btm_group03_b);
+                imageButton2_1.setImageResource(R.drawable.btm2_group03_b);
                 sta=27;fin=36;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton2_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton2_2.setImageResource(R.drawable.btm_group04_b);
+                imageButton2_2.setImageResource(R.drawable.btm2_group04_b);
                 sta=37;fin=46;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton2_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton2_3.setImageResource(R.drawable.btm_group05_b);
+                imageButton2_3.setImageResource(R.drawable.btm2_group05_b);
                 sta=48;fin=57;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton3_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton3_1.setImageResource(R.drawable.btm_group06_b);
+                imageButton3_1.setImageResource(R.drawable.btm2_group06_b);
                 sta=59;fin=65;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton3_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton3_2.setImageResource(R.drawable.btm_group07_b);
+                imageButton3_2.setImageResource(R.drawable.btm2_group07_b);
                 sta=66;fin=74;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton4_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton4_1.setImageResource(R.drawable.btm_group08_b);
+                imageButton4_1.setImageResource(R.drawable.btm2_group08_b);
                 sta=76;fin=84;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton4_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton4_2.setImageResource(R.drawable.btm_group09_b);
+                imageButton4_2.setImageResource(R.drawable.btm2_group09_b);
                 sta=85;fin=95;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton5_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton5_1.setImageResource(R.drawable.btm_group10_b);
+                imageButton5_1.setImageResource(R.drawable.btm2_group10_b);
                 sta=97;fin=105;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton5_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton5_2.setImageResource(R.drawable.btm_group11_b);
+                imageButton5_2.setImageResource(R.drawable.btm2_group11_b);
                 sta=106;fin=115;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton6_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton6_1.setImageResource(R.drawable.btm_group12_b);
+                imageButton6_1.setImageResource(R.drawable.btm2_group12_b);
                 sta=117;fin=125;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton6_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton6_2.setImageResource(R.drawable.btm_group13_b);
+                imageButton6_2.setImageResource(R.drawable.btm2_group13_b);
                 sta=126;fin=135;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton7.setImageResource(R.drawable.btm_group14_b);
+                imageButton7.setImageResource(R.drawable.btm2_group14_b);
                 sta=137;fin=149;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton8_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton8_1.setImageResource(R.drawable.btm_group15_b);
+                imageButton8_1.setImageResource(R.drawable.btm2_group15_b);
                 sta=151;fin=158;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton8_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton8_2.setImageResource(R.drawable.btm_group16_b);
+                imageButton8_2.setImageResource(R.drawable.btm2_group16_b);
                 sta=159;fin=168;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton9_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton9_1.setImageResource(R.drawable.btm_group17_b);
+                imageButton9_1.setImageResource(R.drawable.btm2_group17_b);
                 sta=170;fin=180;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
         imageButton9_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageButton9_2.setImageResource(R.drawable.btm_group18_b);
+                imageButton9_2.setImageResource(R.drawable.btm2_group18_b);
                 sta=181;fin=191;
+                extras = new Bundle();
                 extras.putInt("sta",sta);
                 extras.putInt("fin",fin);
-//                extras.putStringArray("test_word",gettrl(helper,sta,fin));
                 transfer();
             }
         });
@@ -333,34 +333,30 @@ public class ReviewTestActivity extends AppCompatActivity {
 
         x = 2;
 
-        extras = new Bundle();
-        extras.putInt("total",sta - fin + 1);
+        extras.putInt("total",fin - sta + 1);
         extras.putInt("count",1);
         extras.putInt("correct",0);
         extras.putInt("wrong",0);
-//        extras.putStringArray("org",org);
-//        extras.putStringArray("ext",ext);
-//        extras.putDoubleArray("begin",begin);
-//        extras.putDoubleArray("end",end);
-//        extras.putStringArray("img",img);
 
-        switch (x){
-            case 0:
-
-                //send
-                intent = new Intent(context , Test_pic.class);
-                break;
-            case 1:
-
-                //send
-                intent = new Intent(context , Test_sound.class);
-                break;
-            case 2:
-
-                //send
-                intent = new Intent(context , Test_word.class);
-                break;
-        }
+        //測試中，先暫時全部進入Test_word Activity
+        intent = new Intent(context , Test_pic.class);
+//        switch (x){
+//            case 0:
+//
+//                //send
+//                intent = new Intent(context , Test_pic.class);
+//                break;
+//            case 1:
+//
+//                //send
+//                intent = new Intent(context , Test_sound.class);
+//                break;
+//            case 2:
+//
+//                //send
+//                intent = new Intent(context , Test_word.class);
+//                break;
+//        }
         intent.putExtras(extras);
         startActivity(intent);
     }

@@ -95,9 +95,6 @@ public class StudyContentActivity extends AppCompatActivity {
         int n = f-s+1;
         int count = 0;
 
-        //get total string[] long
-        final int group_length = text_array.length;
-
         //Cursor
         Cursor cursor = null;
         //呼叫建構子(寫進DBHelper,context換成this)

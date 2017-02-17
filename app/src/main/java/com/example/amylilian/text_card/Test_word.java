@@ -56,21 +56,22 @@ public class Test_word extends AppCompatActivity {
     private Intent intent;
 
     //ImageButton next page
-    ImageButton nextpage;
+    ImageButton next;
 
-    //get bundle values
-    int total;
-    int count;
-    String[] test_word;
+    double begin[];
+    double end[];
+    String org[];
+    String ext[];
+    String img[];
+    String word[];
+
     int correct;
     int wrong;
-    String[] org;
-    String[] ext;
-    double[] begin;
-    double[] end;
-    String[] img;
-    int s;
-    int f;
+    int count;
+    int total;
+
+    int sta;
+    int fin;
 
     //random number
     int rand;
@@ -85,7 +86,6 @@ public class Test_word extends AppCompatActivity {
         try{
             //判斷資料庫檔案是否存在
             if(!(new File(dbfile).exists())){
-                //String sfile = DBHelper.DB_LOCATION + DBHelper.DB_NAME;
                 InputStream is = context.getAssets().open(DBHelper.DB_NAME);
                 FileOutputStream fos = new FileOutputStream(dbfile);
                 byte[] buffer = new byte[50000];
@@ -124,8 +124,7 @@ public class Test_word extends AppCompatActivity {
         c = (TextView) findViewById(R.id.textView21);
         e1 = (TextView) findViewById(R.id.textView26);
         e2 = (TextView) findViewById(R.id.textView27);
-        nextpage = (ImageButton) findViewById(R.id.nextpage_imgbun);
-        c = (TextView) findViewById(R.id.textView21);
+        next = (ImageButton) findViewById(R.id.nextpage_imgbun);
 
 
         //get bundle
@@ -134,113 +133,122 @@ public class Test_word extends AppCompatActivity {
         count = extras.getInt("count");
         correct = extras.getInt("correct");
         wrong = extras.getInt("wrong");
-        s = extras.getInt("sta");
-        f = extras.getInt("fin");
 
         //假設為第一題 則必須先拿取資料庫資料
-        if(count == 1){
+        if(count == 1) {
+            //取得sta.fin
+            sta = extras.getInt("sta");
+            fin = extras.getInt("fin");
 
-        //Cursor
-        Cursor cursor = null;
+            //Cursor
+            Cursor cursor = null;
 
-        //分類單字總數
-        int n = f-s+1;
+            //分類單字總數
+            int n = fin - sta + 1;
 
-        SQLiteDatabase db = helper.getWritableDatabase();
-        cursor = db.query(Table_Name, new String[] {ID,BeginTime,EndTime,ORG,EXT,IMG,TRL}, null, null, null, null, null, null);
-        //宣告要拿取的資料陣列
-        begin = new double[n];
-        end = new double[n];
-        org = new String[n];
-        ext = new String[n];
-        img = new String[n];
-        test_word = new String[n];
+            SQLiteDatabase db = helper.getWritableDatabase();
+            cursor = db.query(Table_Name, new String[]{ID, BeginTime, EndTime, ORG, EXT, IMG, TRL}, null, null, null, null, null, null);
+            //宣告要拿取的資料陣列
+            begin = new double[n];
+            end = new double[n];
+            org = new String[n];
+            ext = new String[n];
+            img = new String[n];
+            word = new String[n];
 
-        //計算個數 要拿n個單字
-        int i = 0;
-        //先把cursor移至分類的第一個單字
-        cursor.move(s);
-        //指針,存取
-        if (cursor != null){
-            while (cursor.moveToNext() && i < n) {
-                //存入陣列
-                begin[i] = cursor.getDouble(cursor.getColumnIndex(BeginTime));
-                end[i] = cursor.getDouble(cursor.getColumnIndex(EndTime));
-                org[i] = cursor.getString(cursor.getColumnIndex(ORG));
-                ext[i] = cursor.getString(cursor.getColumnIndex(EXT));
-                img[i] = cursor.getString(cursor.getColumnIndex(IMG));
-                test_word[i] = cursor.getString(cursor.getColumnIndex(TRL));
-                i++;
-              }
-           }
-         //關閉
-            if (cursor != null){
-               cursor.close();
+            //計算個數 要拿n個單字
+            int i = 0;
+            //先把cursor移至分類的第一個單字
+            cursor.move(sta);
+            //指針,存取
+            if (cursor != null) {
+                while (i < n) {
+                    //存入陣列
+                    double be = cursor.getDouble(cursor.getColumnIndex(BeginTime));
+                    begin[i] = be;
+                    double en = cursor.getDouble(cursor.getColumnIndex(EndTime));
+                    end[i] = en;
+                    String or = cursor.getString(cursor.getColumnIndex(ORG));
+                    org[i] = or;
+                    String ex = cursor.getString(cursor.getColumnIndex(EXT));
+                    ext[i] = ex;
+                    String im = cursor.getString(cursor.getColumnIndex(IMG));
+                    img[i] = im;
+                    String w = cursor.getString(cursor.getColumnIndex(TRL));
+                    word[i] = w;
+                    i++;
+                    cursor.moveToNext();
+                }
+            }
+            //關閉
+            if (cursor != null) {
+                cursor.close();
                 db.close();
-              helper.close();
-          }
+                helper.close();
+            }
         }
 
         //如果不是第一題 則利用get bundle拿資料庫資料
         else {
-            test_word = extras.getStringArray("test_word");
-            org = extras.getStringArray("org");
-            ext = extras.getStringArray("ext");
-            begin = extras.getDoubleArray("begin");
-            end = extras.getDoubleArray("end");
-            img = extras.getStringArray("img");
+            begin =  extras.getDoubleArray("begin");
+            end =  extras.getDoubleArray("end");
+            org =  extras.getStringArray("org");
+            ext =  extras.getStringArray("ext");
+            img =  extras.getStringArray("img");
+            word = extras.getStringArray("word");
         }
 
         c.setText(count + "");
-        text.setText(test_word[count - 1]);
-
+        text.setText(org[count - 1]);
 
         //random choose
         rand = (int) (Math.random() * 4);
         int[] ia = new int[3];
         int num = count + 2;
-        for(int i = 0 ; i < 3 ; i++){
+
+        for(int j = 0 ; j < 3 ; j++){
             if (num > total){
                 num = num % total;
             }
-            ia[i] = num;
+            ia[j] = num;
             num++;
         }
+
         switch (rand) {
             case 0:
-                t1.setText(test_word[count-1]);
-                t2.setText(test_word[ia[0]-1]);
-                t3.setText(test_word[ia[1]-1]);
-                t4.setText(test_word[ia[2]-1]);
+                t1.setText(word[count-1]);
+                t2.setText(word[ia[0]-1]);
+                t3.setText(word[ia[1]-1]);
+                t4.setText(word[ia[2]-1]);
                 break;
             case 1:
-                t1.setText(test_word[ia[0]-1]);
-                t2.setText(test_word[count - 1]);
-                t3.setText(test_word[ia[1]-1]);
-                t4.setText(test_word[ia[2]-1]);
+                t1.setText(word[ia[0]-1]);
+                t2.setText(word[count - 1]);
+                t3.setText(word[ia[1]-1]);
+                t4.setText(word[ia[2]-1]);
                 break;
             case 2:
-                t1.setText(test_word[ia[0]-1]);
-                t2.setText(test_word[ia[1]-1]);
-                t3.setText(test_word[count - 1]);
-                t4.setText(test_word[ia[2]-1]);
+                t1.setText(word[ia[0]-1]);
+                t2.setText(word[ia[1]-1]);
+                t3.setText(word[count - 1]);
+                t4.setText(word[ia[2]-1]);
                 break;
             case 3:
-                t1.setText(test_word[ia[0]-1]);
-                t2.setText(test_word[ia[1]-1]);
-                t3.setText(test_word[ia[2]-1]);
-                t4.setText(test_word[count - 1]);
+                t1.setText(word[ia[0]-1]);
+                t2.setText(word[ia[1]-1]);
+                t3.setText(word[ia[2]-1]);
+                t4.setText(word[count - 1]);
                 break;
         }
 
         //set color
         color = new String[4];
-        for (int i = 0 ; i < 4 ; i++){
-            if (i == rand){
-                color[i] = "#6bfe63";
+        for (int k = 0 ; k < 4 ; k++){
+            if (k == rand){
+                color[k] = "#6bfe63";
             }
             else {
-                color[i] = "#ff1723";
+                color[k] = "#ff1723";
             }
         }
 
@@ -303,11 +311,11 @@ public class Test_word extends AppCompatActivity {
 
         context = this;
         if (total == count){
-            nextpage.setImageResource(R.drawable.btm_end_a);
-            nextpage.setOnClickListener(new View.OnClickListener() {
+            next.setImageResource(R.drawable.btm_end_a);
+            next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nextpage.setImageResource(R.drawable.btm_end_b);
+                    next.setImageResource(R.drawable.btm_end_b);
                     Bundle extra = new Bundle();
                     extra.putInt("correct",correct);
                     intent = new Intent(context , Test_End_Activity.class);
@@ -317,10 +325,10 @@ public class Test_word extends AppCompatActivity {
                 }
             });
         }else{
-            nextpage.setOnClickListener(new View.OnClickListener() {
+            next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nextpage.setImageResource(R.drawable.btm_right_b);
+                    next.setImageResource(R.drawable.btm_right_b);
                     trans(total,count);
                 }
             });
@@ -339,7 +347,7 @@ public class Test_word extends AppCompatActivity {
         //package
         extra.putInt("total",x);
         extra.putInt("count",y + 1);
-        extra.putStringArray("test_word",test_word);
+        extra.putStringArray("word",word);
         extra.putInt("correct",correct);
         extra.putInt("wrong",wrong);
         extra.putStringArray("org",org);

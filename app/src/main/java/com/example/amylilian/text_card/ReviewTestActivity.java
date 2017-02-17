@@ -338,25 +338,24 @@ public class ReviewTestActivity extends AppCompatActivity {
         extras.putInt("correct",0);
         extras.putInt("wrong",0);
 
-        //測試中，先暫時全部進入Test_word Activity
         intent = new Intent(context , Test_pic.class);
-//        switch (x){
-//            case 0:
-//
-//                //send
-//                intent = new Intent(context , Test_pic.class);
-//                break;
-//            case 1:
-//
-//                //send
-//                intent = new Intent(context , Test_sound.class);
-//                break;
-//            case 2:
-//
-//                //send
-//                intent = new Intent(context , Test_word.class);
-//                break;
-//        }
+        switch (x){
+            case 0:
+
+                //send
+                intent = new Intent(context , Test_pic.class);
+                break;
+            case 1:
+
+                //send
+                intent = new Intent(context , Test_sound.class);
+                break;
+            case 2:
+
+                //send
+                intent = new Intent(context , Test_word.class);
+                break;
+        }
         intent.putExtras(extras);
         startActivity(intent);
     }

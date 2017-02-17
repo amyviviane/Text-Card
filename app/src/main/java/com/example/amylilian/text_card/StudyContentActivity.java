@@ -37,6 +37,8 @@ public class StudyContentActivity extends AppCompatActivity {
     TextView text1;
     ImageView img;
     TextView text2;
+    TextView text3;
+
 
     //add intent
     private Context context;
@@ -81,18 +83,18 @@ public class StudyContentActivity extends AppCompatActivity {
         text1 = (TextView) findViewById(R.id.text1View_studyfirst);
         img = (ImageView) findViewById(R.id.imageView2);
         text2 = (TextView) findViewById(R.id.textView_chinese);
-
-        //get temply text string
-        //String[] text_array = getResources().getStringArray(R.array.temp_text);
+        text3 = (TextView) findViewById(R.id.textView28);
 
         //get bundle
         Bundle extras = getIntent().getExtras();
         final String[] text_array = extras.getStringArray("text");
-        final int s = extras.getInt("sta");
-        final int f = extras.getInt("fin");
+        final int sta = extras.getInt("sta");
+        final int fin = extras.getInt("fin");
+
+        System.out.println("sta is "+sta);
 
         //分類單字總數
-        int n = f-s+1;
+        int n = fin-sta+1;
         int count = 0;
 
         //Cursor
@@ -113,7 +115,7 @@ public class StudyContentActivity extends AppCompatActivity {
         //計算個數 要拿n個單字
         int i = 0;
         //先把cursor移至分類的第一個單字
-        cursor.move(s);
+        cursor.move(sta);
         //指針,存取
         if (cursor != null){
             while (cursor.moveToNext() && i < n) {
@@ -140,8 +142,10 @@ public class StudyContentActivity extends AppCompatActivity {
 
         //set trl
         text1.setText(text_array[0]);
-        //set org+ext
-        text2.setText(or[count]+ "\n" +ex[count]);
+        //set org
+        text2.setText(or[0]);
+        //set ext
+        text3.setText(ex[0]);
         //set img
         String str = im[count].toLowerCase(); //將取出的圖檔名轉小寫
         Context con = getApplicationContext();
@@ -158,8 +162,8 @@ public class StudyContentActivity extends AppCompatActivity {
                 final Bundle extras = new Bundle();
                 extras.putInt("count",1);
 
-                extras.putInt("sta",s);
-                extras.putInt("fin",f);
+                extras.putInt("sta",sta);
+                extras.putInt("fin",fin);
 
                 //傳遞小分類所有資料
                 extras.putStringArray("text",text_array);

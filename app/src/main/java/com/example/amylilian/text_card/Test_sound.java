@@ -252,6 +252,7 @@ public class Test_sound extends AppCompatActivity {
 
         //sound buttom
         sound.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 starttime = (int)(begin[count - 1] * 1000);
@@ -260,9 +261,10 @@ public class Test_sound extends AppCompatActivity {
                 mediaPlayer = MediaPlayer.create(context,R.raw.sgalvp);
                 mediaPlayer.seekTo(starttime);
 
+
                 mediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener(){
                     public void onSeekComplete(MediaPlayer m) {
-                        m.start();
+                            m.start();
                     }
                 });
                 CountDownTimer timer = new CountDownTimer(duration, duration) {

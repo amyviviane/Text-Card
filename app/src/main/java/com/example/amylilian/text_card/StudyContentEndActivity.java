@@ -19,6 +19,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
     ImageButton end_botton;
     TextView text1;
     TextView text2;
+    TextView text3;
     ImageView img1;
     private MediaPlayer mediaPlayer;
     private int starttime;
@@ -38,6 +39,7 @@ public class StudyContentEndActivity extends AppCompatActivity {
         end_botton = (ImageButton) findViewById(R.id.endButton_studyend);
         text1 = (TextView) findViewById(R.id.text1View_studyend);
         text2 = (TextView) findViewById(R.id.textView30);
+        text3 = (TextView) findViewById(R.id.textView31);
         img1 = (ImageView) findViewById(R.id.imageView2);
 
         //get temply text string
@@ -46,6 +48,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
         //get bundle(新增2016.11.30)
         Bundle extras = getIntent().getExtras();
         final int count = extras.getInt("count");
+        final int sta = extras.getInt("sta");
+        final int fin = extras.getInt("fin");
         //取出小分類所有資料
         final String[] text_array = extras.getStringArray("text");
         final String[] org =  extras.getStringArray("org");
@@ -59,8 +63,10 @@ public class StudyContentEndActivity extends AppCompatActivity {
 
         //set trl
         text1.setText(text_array[count]);
-        //set org+ext
-        text2.setText(org[count]+ "\n" +ext[count]);
+        //set org
+        text2.setText(org[count]);
+        //set ext
+        text3.setText(ext[count]);
         //set img
         String str = img[count].toLowerCase(); //將取出的圖檔名轉小寫
         Context con = getApplicationContext();
@@ -78,6 +84,8 @@ public class StudyContentEndActivity extends AppCompatActivity {
                 final Bundle extras = new Bundle();
                 extras.putInt("length",group_length);
                 extras.putInt("count",count - 1);
+                extras.putInt("sta",sta);
+                extras.putInt("fin",fin);
                 //傳遞小分類所有資料
                 extras.putStringArray("text",text_array);
                 extras.putStringArray("org",org);

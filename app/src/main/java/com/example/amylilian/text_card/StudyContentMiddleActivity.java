@@ -18,6 +18,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
     ImageButton next_botton;
     TextView text1;
     TextView text2;
+    TextView text3;
     ImageView img1;
     private MediaPlayer mediaPlayer;
     private int starttime;
@@ -38,6 +39,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         next_botton = (ImageButton) findViewById(R.id.nextpageButton_studymiddle);
         text1 = (TextView) findViewById(R.id.text1View_studymiddle);
         text2 = (TextView) findViewById(R.id.textView29);
+        text3 = (TextView) findViewById(R.id.textView31);
         img1 = (ImageView) findViewById(R.id.imageView2);
 
         //get temply text string
@@ -46,8 +48,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         //get bundle
         Bundle extras = getIntent().getExtras();
         final int count = extras.getInt("count");
-        final int s = extras.getInt("sta");
-        final int f = extras.getInt("fin");
+        final int sta = extras.getInt("sta");
+        final int fin = extras.getInt("fin");
 
         //取出小分類所有資料
         final String[] text_array = extras.getStringArray("text");
@@ -62,8 +64,10 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
 
         //set trl
         text1.setText(text_array[count]);
-        //set org+ext
-        text2.setText(org[count]+ "\n" +ext[count]);
+        //set org
+        text2.setText(org[count]);
+        //set ext
+        text3.setText(ext[count]);
         //set img
         String str = img[count].toLowerCase(); //將取出的圖檔名轉小寫
         Context con = getApplicationContext();
@@ -79,9 +83,10 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                 if ((count - 1) == 0){
                     //put value into Bundle
                     final Bundle extras = new Bundle();
+                    extras.putInt("count",0);
                     extras.putStringArray("text",text_array);
-                    extras.putInt("sta",s);
-                    extras.putInt("fin",f);
+                    extras.putInt("sta",sta);
+                    extras.putInt("fin",fin);
 
                     intent = new Intent(context, StudyContentActivity.class);
                     intent.putExtras(extras);
@@ -93,6 +98,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count - 1);
+                    extras.putInt("sta",sta);
+                    extras.putInt("fin",fin);
                     //傳遞小分類所有資料
                     extras.putStringArray("text",text_array);
                     extras.putStringArray("org",org);
@@ -119,7 +126,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count + 1);
-
+                    extras.putInt("sta",sta);
+                    extras.putInt("fin",fin);
                     //傳遞小分類所有資料
                     extras.putStringArray("text",text_array);
                     extras.putStringArray("org",org);
@@ -138,6 +146,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                     final Bundle extras = new Bundle();
                     extras.putInt("length",group_length);
                     extras.putInt("count",count + 1);
+                    extras.putInt("sta",sta);
+                    extras.putInt("fin",fin);
                     //傳遞小分類所有資料
                     extras.putStringArray("text",text_array);
                     extras.putStringArray("org",org);

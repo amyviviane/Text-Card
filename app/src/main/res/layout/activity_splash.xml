@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
@@ -9,10 +10,31 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="com.example.amylilian.text_card.SplashScreen">
-    <ImageView
+
+    <ImageButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/start"
-        android:scaleType="fitXY" />
+        app:srcCompat="@android:color/background_light"
+        android:id="@+id/imageButton11"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView23"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="請點擊畫面開始"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView23"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:id="@+id/textView28"
+        android:textSize="24sp" />
 </RelativeLayout>

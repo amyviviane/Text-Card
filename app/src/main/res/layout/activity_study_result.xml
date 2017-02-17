@@ -41,4 +41,13 @@
         android:layout_below="@+id/imageButton"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"/>
+
+    <ImageView
+        android:layout_width="192dp"
+        android:layout_height="137dp"
+        app:srcCompat="@drawable/meow_learn"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:id="@+id/imageView21" />
 </RelativeLayout>

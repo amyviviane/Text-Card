@@ -13,11 +13,13 @@
     tools:context="com.example.amylilian.text_card.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="主畫面"
-        android:textSize="30sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        app:srcCompat="@drawable/meow"
+        android:layout_marginTop="13dp"
+        android:id="@+id/imageView17"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

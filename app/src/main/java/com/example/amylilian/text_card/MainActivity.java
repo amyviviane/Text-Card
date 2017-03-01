@@ -15,15 +15,50 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    ImageButton u;
+    TextView t;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        u = (ImageButton) findViewById(R.id.imageView17);
+        t = (TextView) findViewById(R.id.textView36);
+
+        u.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i = (int)(Math.random()*10+1);
+                if (i == 1){
+                    t.setText("魚蠢的normal people");
+                }else if (i == 2){
+                    t.setText("本大爺肚子餓了！");
+                }else if (i == 3){
+                    t.setText("一天一apple，doctor遠離我");
+                }else if (i == 4){
+                    t.setText("多多背單字有益身體健康");
+                }else if (i == 5){
+                    t.setText("喵喵喵喵喵");
+                }else if (i == 6){
+                    t.setText("好久沒來看我了，孤單寂寞……覺得冷");
+                }else if (i == 7){
+                    t.setText("Love you every day");
+                }else if (i == 8){
+                    t.setText("本大爺才不是喵星人呢，汪汪");
+                }else if (i == 9){
+                    t.setText("把你的手拿開！放開本大爺！");
+                }else if (i == 10){
+                    t.setText("好久沒有進貢罐罐了，真不應該～");
+                }
+            }
+        });
 
         //只能直立
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -103,10 +138,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_ReviewTest) {
             Intent intent = new Intent(this , ReviewTestActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_SetUp) {
-            Intent intent = new Intent(this , SettingsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_About) {

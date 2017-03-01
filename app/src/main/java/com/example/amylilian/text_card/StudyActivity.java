@@ -100,10 +100,10 @@ public class StudyActivity extends AppCompatActivity {
         imageButton7 = (ImageButton) findViewById(R.id.imageButton7);
         //水果
         imageButton8_1 = (ImageButton) findViewById(R.id.imageButton8_1);
-        imageButton8_2 = (ImageButton) findViewById(R.id.imageButton8_2);
+        imageButton8_2 = (ImageButton) findViewById(R.id.imageButton8_1);
         //食品
-        imageButton9_1 = (ImageButton) findViewById(R.id.imageButton9_1);
-        imageButton9_2 = (ImageButton) findViewById(R.id.imageButton9_2);
+        imageButton9_1 = (ImageButton) findViewById(R.id.imageButton8_2);
+        imageButton9_2 = (ImageButton) findViewById(R.id.imageButton9_1);
 
         context = this;
         imageButton1_1.setOnClickListener(new View.OnClickListener() {

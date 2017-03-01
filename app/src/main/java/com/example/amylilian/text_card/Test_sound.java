@@ -279,10 +279,12 @@ public class Test_sound extends AppCompatActivity {
                         if (mediaPlayer.isPlaying()) {
                             mediaPlayer.stop();
                             mediaPlayer.release();
+                            sound.setEnabled(true);
                         }
                     }
                 };
                 timer.start();
+                sound.setEnabled(false);
             }
         });
 
@@ -409,5 +411,10 @@ public class Test_sound extends AppCompatActivity {
         //show right and error number
         e1.setText("對：" + correct);
         e2.setText("錯：" + wrong);
+
+        c1.setEnabled(false);
+        c2.setEnabled(false);
+        c3.setEnabled(false);
+        c4.setEnabled(false);
     }
 }

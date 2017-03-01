@@ -146,53 +146,25 @@
                     android:layout_marginEnd="32dp"
                     android:scaleType="centerCrop"
                     android:background="@android:color/transparent"/>
-                <ImageButton
-                    android:layout_width="112dp"
-                    android:layout_height="48dp"
-                    app:srcCompat="@drawable/btm_group14_a"
-                    android:layout_below="@+id/imageButton6_1"
-                    android:layout_marginTop="32dp"
-                    android:id="@+id/imageButton7"
-                    android:layout_marginStart="32dp"
-                    android:scaleType="centerCrop"
-                    android:background="@android:color/transparent"/>
+
                 <ImageButton
                     android:layout_width="112dp"
                     android:layout_height="48dp"
                     app:srcCompat="@drawable/btm_group15_a"
-                    android:layout_alignTop="@+id/imageButton7"
-                    android:layout_alignStart="@+id/imageButton2_2"
-                    android:id="@+id/imageButton8_1"
-                    android:layout_marginEnd="32dp"
-                    android:scaleType="centerCrop"
-                    android:background="@android:color/transparent"/>
-                <ImageButton
-                    android:layout_width="112dp"
-                    android:layout_height="48dp"
-                    app:srcCompat="@drawable/btm_group16_a"
                     android:layout_below="@+id/imageButton7"
                     android:layout_marginTop="32dp"
-                    android:id="@+id/imageButton8_2"
+                    android:id="@+id/imageButton8_1"
                     android:layout_marginStart="32dp"
                     android:scaleType="centerCrop"
                     android:background="@android:color/transparent"/>
+
                 <ImageButton
                     android:layout_width="112dp"
                     android:layout_height="48dp"
                     app:srcCompat="@drawable/btm_group17_a"
-                    android:layout_alignTop="@+id/imageButton8_2"
-                    android:layout_alignStart="@+id/imageButton2_2"
-                    android:id="@+id/imageButton9_1"
-                    android:layout_marginEnd="32dp"
-                    android:scaleType="centerCrop"
-                    android:background="@android:color/transparent"/>
-                <ImageButton
-                    android:layout_width="112dp"
-                    android:layout_height="48dp"
-                    app:srcCompat="@drawable/btm_group18_a"
-                    android:layout_below="@+id/imageButton8_2"
+                    android:layout_below="@+id/imageButton8_1"
                     android:layout_marginTop="32dp"
-                    android:id="@+id/imageButton9_2"
+                    android:id="@+id/imageButton9_1"
                     android:layout_marginStart="32dp"
                     android:scaleType="centerCrop"
                     android:background="@android:color/transparent"/>
@@ -208,17 +180,6 @@
                     android:layout_below="@+id/imageButton4_1"
                     android:layout_alignStart="@+id/imageButton6_1" />
 
-                <ImageButton
-                    android:layout_width="112dp"
-                    android:layout_height="48dp"
-                    app:srcCompat="@drawable/btm_group12_a"
-                    android:layout_marginTop="32dp"
-                    android:id="@+id/imageButton6_1"
-                    android:scaleType="centerCrop"
-                    android:background="@android:color/transparent"
-                    android:layout_below="@+id/imageButton5_1"
-                    android:layout_alignStart="@+id/imageButton7" />
-
                 <ImageView
                     android:layout_width="145dp"
                     android:layout_height="112dp"
@@ -227,6 +188,56 @@
                     android:layout_marginTop="48dp"
                     android:layout_alignTop="@+id/imageButton2_2"
                     android:layout_alignStart="@+id/imageButton2_2"/>
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm_group18_a"
+                    android:layout_alignTop="@+id/imageButton9_1"
+                    android:layout_alignStart="@+id/imageButton8_2"
+                    android:id="@+id/imageButton9_2"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"/>
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm_group14_a"
+                    android:layout_marginTop="38dp"
+                    android:id="@+id/imageButton7"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_below="@+id/imageButton6_2"
+                    android:layout_alignStart="@+id/imageButton8_2" />
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm_group12_a"
+                    android:layout_marginTop="32dp"
+                    android:id="@+id/imageButton6_1"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_below="@+id/imageButton5_2"
+                    android:layout_alignStart="@+id/imageButton4_1" />
+
+                <ImageView
+                    android:layout_width="145dp"
+                    android:layout_height="112dp"
+                    app:srcCompat="@drawable/pic2"
+                    android:id="@+id/imageView23"
+                    android:layout_below="@+id/imageButton6_1"
+                    android:layout_alignParentStart="true" />
+
+                <ImageButton
+                    android:layout_width="112dp"
+                    android:layout_height="48dp"
+                    app:srcCompat="@drawable/btm_group16_a"
+                    android:id="@+id/imageButton8_2"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_alignTop="@+id/imageButton8_1"
+                    android:layout_alignStart="@+id/imageButton6_2" />
 
             </RelativeLayout>
         </LinearLayout>

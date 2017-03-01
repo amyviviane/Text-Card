@@ -190,10 +190,12 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
                         if (mediaPlayer.isPlaying()) {
                             mediaPlayer.stop();
                             mediaPlayer.release();
+                            sound_botton.setEnabled(true);
                         }
                     }
                 };
                 timer.start();
+                sound_botton.setEnabled(false);
             }
         });
     }

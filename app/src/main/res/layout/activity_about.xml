@@ -11,10 +11,86 @@
     tools:context="com.example.amylilian.text_card.AboutActivity">
 
     <TextView
-        android:text="About us"
+        android:text="版本1.0.0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView32"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="開發人員"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/textView33"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="彭雅鈴 | ???"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView37"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="阮怡嘉 | I-Chia, Juan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView35"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView37"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="王詩堯 | Shih-Yao, Wang "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/textView34"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView33"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="技術指導"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView35"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/textView38" />
+
+    <TextView
+        android:text="朱蕙君 | Carol Chu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/textView39"
+        android:textSize="20sp" />
+
+    <TextView
+        android:text="軟體發行＆版權所有 曉騰國際"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView40"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="跟著喵喵ABC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

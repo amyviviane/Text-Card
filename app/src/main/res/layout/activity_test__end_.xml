@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.amylilian.text_card.Test_End_Activity"
-    android:background="@drawable/bg_test2">
+    android:background="@drawable/bg_test">
 
     <ImageView
         android:layout_width="284dp"

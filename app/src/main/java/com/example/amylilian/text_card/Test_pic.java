@@ -370,5 +370,10 @@ public class Test_pic extends AppCompatActivity {
         //show right and error number
         e1.setText("對：" + correct);
         e2.setText("錯：" + wrong);
+
+        c1.setEnabled(false);
+        c2.setEnabled(false);
+        c3.setEnabled(false);
+        c4.setEnabled(false);
     }
 }

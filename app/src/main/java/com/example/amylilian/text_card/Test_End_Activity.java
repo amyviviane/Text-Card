@@ -41,16 +41,20 @@ public class Test_End_Activity extends AppCompatActivity {
         testgo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                testgo.setImageResource(R.drawable.btm2_gotest_b);
                 intent = new Intent(context , ReviewTestActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
         gotostudy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                gotostudy.setImageResource(R.drawable.btm2_golearn_b);
                 intent = new Intent(context , StudyActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -311,6 +311,7 @@ public class StudyActivity extends AppCompatActivity {
         intent = new Intent(context , StudyContentActivity.class);
         intent.putExtras(extras);
         startActivity(intent);
+        finish();
     }
 
     public String[] gettrl(String type,DBHelper helper){

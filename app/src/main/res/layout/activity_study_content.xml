@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text1View_studyfirst"
         android:textSize="24sp"
-        android:layout_above="@+id/imageView4"
+        android:layout_alignTop="@+id/imageView3"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

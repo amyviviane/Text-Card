@@ -1,7 +1,9 @@
 package com.example.amylilian.text_card;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,14 +18,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageButton u;
+    ImageView im;
     TextView t;
     int i;
+    MediaPlayer m = new MediaPlayer();
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +37,56 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         u = (ImageButton) findViewById(R.id.imageView17);
         t = (TextView) findViewById(R.id.textView36);
+        im = (ImageView) findViewById(R.id.imageView24);
 
+        context = this;
+        im.setVisibility(View.INVISIBLE);
         u.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i = (int)(Math.random()*10+1);
+                im.setVisibility(View.INVISIBLE);
                 if (i == 1){
                     t.setText("魚蠢的normal people");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 2){
                     t.setText("本大爺肚子餓了！");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 3){
                     t.setText("一天一apple，doctor遠離我");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 4){
                     t.setText("多多背單字有益身體健康");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 5){
                     t.setText("喵喵喵喵喵");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 6){
                     t.setText("好久沒來看我了，孤單寂寞……覺得冷");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 7){
                     t.setText("Love you every day");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
+                    im.setVisibility(View.VISIBLE);
                 }else if (i == 8){
                     t.setText("本大爺才不是喵星人呢，汪汪");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 9){
                     t.setText("把你的手拿開！放開本大爺！");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }else if (i == 10){
                     t.setText("好久沒有進貢罐罐了，真不應該～");
+                    m = MediaPlayer.create(context,R.raw.s4);
+                    m.start();
                 }
             }
         });

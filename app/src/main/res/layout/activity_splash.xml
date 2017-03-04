@@ -35,6 +35,6 @@
         android:layout_below="@+id/imageView23"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:id="@+id/textView28"
+        android:id="@+id/ex0"
         android:textSize="24sp" />
 </RelativeLayout>

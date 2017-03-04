@@ -8,7 +8,6 @@ import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 import static com.example.amylilian.text_card.DBColumns.BeginTime;
@@ -25,7 +23,6 @@ import static com.example.amylilian.text_card.DBColumns.EndTime;
 import static com.example.amylilian.text_card.DBColumns.ID;
 import static com.example.amylilian.text_card.DBColumns.IMG;
 import static com.example.amylilian.text_card.DBColumns.ORG;
-import static com.example.amylilian.text_card.DBColumns.TRL;
 import static com.example.amylilian.text_card.DBColumns.Table_Name;
 
 
@@ -38,6 +35,7 @@ public class StudyContentActivity extends AppCompatActivity {
     ImageView img;
     TextView text2;
     TextView text3;
+    TextView text4;
 
 
     //add intent
@@ -83,7 +81,8 @@ public class StudyContentActivity extends AppCompatActivity {
         text1 = (TextView) findViewById(R.id.text1View_studyfirst);
         img = (ImageView) findViewById(R.id.imageView2);
         text2 = (TextView) findViewById(R.id.textView_chinese);
-        text3 = (TextView) findViewById(R.id.textView28);
+        text3 = (TextView) findViewById(R.id.ex0);
+        text4 = (TextView) findViewById(R.id.ex1);
 
         //get bundle
         Bundle extras = getIntent().getExtras();
@@ -144,8 +143,24 @@ public class StudyContentActivity extends AppCompatActivity {
         text1.setText(text_array[0]);
         //set org
         text2.setText(or[0]);
+        //切割拼音
+        String[] es = ex[0].split("]");
         //set ext
-        text3.setText(ex[0]);
+        text3.setText(es[0]+"]");
+        text4.setText(es[1]+"]");
+        //防止字數過多
+        if(text_array[0].length() > 13) {
+            text1.setTextSize(18);
+        }
+        if(es[0].length() > 11) {
+            text3.setTextSize(14);
+        }
+        if(es[1].length() > 15) {
+            text4.setTextSize(14);
+        }
+        if(es[1].length() > 17) {
+            text4.setTextSize(12);
+        }
         //set img
         String str = im[count].toLowerCase(); //將取出的圖檔名轉小寫
         Context con = getApplicationContext();

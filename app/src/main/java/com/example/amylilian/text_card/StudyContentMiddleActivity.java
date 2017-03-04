@@ -19,6 +19,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
     TextView text1;
     TextView text2;
     TextView text3;
+    TextView text4;
     ImageView img1;
     private MediaPlayer mediaPlayer;
     private int starttime;
@@ -39,7 +40,8 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         next_botton = (ImageButton) findViewById(R.id.nextpageButton_studymiddle);
         text1 = (TextView) findViewById(R.id.text1View_studymiddle);
         text2 = (TextView) findViewById(R.id.textView29);
-        text3 = (TextView) findViewById(R.id.textView31);
+        text3 = (TextView) findViewById(R.id.ex0);
+        text4 = (TextView) findViewById(R.id.ex1);
         img1 = (ImageView) findViewById(R.id.imageView2);
 
         //get temply text string
@@ -66,8 +68,24 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         text1.setText(text_array[count]);
         //set org
         text2.setText(org[count]);
+        //切割拼音
+        String[] es = ext[count].split("]");
         //set ext
-        text3.setText(ext[count]);
+        text3.setText(es[0]+"]");
+        text4.setText(es[1]+"]");
+        //防止字數過多
+        if(text_array[count].length() > 13) {
+            text1.setTextSize(18);
+        }
+        if(es[0].length() > 11) {
+            text3.setTextSize(14);
+        }
+        if(es[1].length() > 15) {
+            text4.setTextSize(14);
+        }
+        if(es[1].length() > 17) {
+            text4.setTextSize(12);
+        }
         //set img
         String str = img[count].toLowerCase(); //將取出的圖檔名轉小寫
         Context con = getApplicationContext();

@@ -10,7 +10,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".SplashScreen"
-            android:label="跟著喵喵ABC">
+            android:label="跟著喵喵ABC"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +21,8 @@
         <activity
             android:name=".MainActivity"
             android:label="喵喵窩"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
 
         <!--限制直立-->
         <activity android:name=".StudyActivity"

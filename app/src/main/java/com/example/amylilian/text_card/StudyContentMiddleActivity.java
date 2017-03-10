@@ -74,7 +74,7 @@ public class StudyContentMiddleActivity extends AppCompatActivity {
         text3.setText(es[0]+"]");
         text4.setText(es[1]+"]");
         //防止字數過多
-        if(text_array[count].length() > 13) {
+        if(text_array[count].length() > 12) {
             text1.setTextSize(18);
         }
         if(es[0].length() > 11) {

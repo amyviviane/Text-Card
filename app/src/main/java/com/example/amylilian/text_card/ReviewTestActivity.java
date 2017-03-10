@@ -358,6 +358,7 @@ public class ReviewTestActivity extends AppCompatActivity {
         }
         intent.putExtras(extras);
         startActivity(intent);
+        finish();
     }
 //
 //    public String[] gettrl(DBHelper helper,int s,int f){

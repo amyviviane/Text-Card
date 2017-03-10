@@ -50,43 +50,62 @@ public class MainActivity extends AppCompatActivity
                     t.setText("魚蠢的normal people");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.angry);
                 }else if (i == 2){
                     t.setText("本大爺肚子餓了！");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.can);
                 }else if (i == 3){
                     t.setText("一天一apple，doctor遠離我");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.apple);
                 }else if (i == 4){
                     t.setText("多多背單字有益身體健康");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.heart);
                 }else if (i == 5){
                     t.setText("喵喵喵喵喵");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.meatball);
                 }else if (i == 6){
                     t.setText("好久沒來看我了，孤單寂寞……覺得冷");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.sweat);
                 }else if (i == 7){
                     t.setText("Love you every day");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
                     im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.heart);
                 }else if (i == 8){
                     t.setText("本大爺才不是喵星人呢，汪汪");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.meatball);
                 }else if (i == 9){
                     t.setText("把你的手拿開！放開本大爺！");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.shock);
                 }else if (i == 10){
                     t.setText("好久沒有進貢罐罐了，真不應該～");
                     m = MediaPlayer.create(context,R.raw.s4);
                     m.start();
+                    im.setVisibility(View.VISIBLE);
+                    im.setImageResource(R.drawable.can);
                 }
             }
         });
